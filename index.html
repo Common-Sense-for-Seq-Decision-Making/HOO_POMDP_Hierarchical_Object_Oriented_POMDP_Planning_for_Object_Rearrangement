@@ -223,7 +223,7 @@
         <h2 class="title is-2 has-text-centered">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            [cite_start]We present an online planning approach and a new benchmark dataset for solving multi-object rearrangement problems in partially observable, multi-room environments[cite: 12]. [cite_start]Current object rearrangement solutions, primarily based on Reinforcement Learning or hand-coded planning methods, often lack adaptability to diverse challenges[cite: 13]. [cite_start]To address this limitation, we propose a Hierarchical Object-Oriented Partially Observed Markov Decision Process (HOO-POMDP) planner that leverages object-factored belief representations for efficient multi-object rearrangement[cite: 14]. [cite_start]This approach comprises of (a) an object-oriented POMDP planner generating sub-goals, (b) a set of low-level policies for sub-goal achievement, and (c) an abstraction system converting the continuous low-level world into a representation suitable for abstract planning[cite: 15]. [cite_start]To enable rigorous evaluation, we introduce MultiRoomR, a comprehensive benchmark featuring diverse multi-room environments with varying degrees of partial observability (10-30% initial visibility), blocked paths, obstructed goals, and multiple objects (10-20) distributed across 2-4 rooms[cite: 16]. [cite_start]Experiments demonstrate that our system effectively handles these complex scenarios while maintaining robust performance even with imperfect perception[cite: 17].
+            We present an online planning approach and a new benchmark dataset for solving multi-object rearrangement problems in partially observable, multi-room environments. Current object rearrangement solutions, primarily based on Reinforcement Learning or hand-coded planning methods, often lack adaptability to diverse challenges. To address this limitation, we propose a Hierarchical Object-Oriented Partially Observed Markov Decision Process (HOO-POMDP) planner that leverages object-factored belief representations for efficient multi-object rearrangement. This approach comprises of (a) an object-oriented POMDP planner generating sub-goals, (b) a set of low-level policies for sub-goal achievement, and (c) an abstraction system converting the continuous low-level world into a representation suitable for abstract planning. To enable rigorous evaluation, we introduce MultiRoomR, a comprehensive benchmark featuring diverse multi-room environments with varying degrees of partial observability (10-30% initial visibility), blocked paths, obstructed goals, and multiple objects (10-20) distributed across 2-4 rooms. Experiments demonstrate that our system effectively handles these complex scenarios while maintaining robust performance even with imperfect perception.
           </p>
         </div>
       </div>
@@ -242,21 +242,21 @@
             </h2>
             
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Embodied AI rearrangement is a fundamental challenge:</b> It's a core task for home assistant robots[cite: 19, 21].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Embodied AI rearrangement is a fundamental challenge:</b> It's a core task for home assistant robots.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>Multi-object rearrangement with egocentric vision requires integrating perception, planning, navigation, and manipulation, especially in partially observable, multi-room settings common in everyday life[cite: 19, 20, 21].</p>
+                    <p>Multi-object rearrangement with egocentric vision requires integrating perception, planning, navigation, and manipulation, especially in partially observable, multi-room settings common in everyday life.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Real-world tasks are complex:</b> Scenarios involve blocked paths, obstructed goals, and spatial dependencies[cite: 24, 27].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Real-world tasks are complex:</b> Scenarios involve blocked paths, obstructed goals, and spatial dependencies.</div>
                 <div class="dropdown-content">
-                    <p>Simple greedy planners or fixed skill sequences can't determine the optimal order to move objects. [cite_start]They fail when spatial reasoning is required, such as moving one object to unblock another's path or goal[cite: 24, 27, 45].</p>
+                    <p>Simple greedy planners or fixed skill sequences can't determine the optimal order to move objects. They fail when spatial reasoning is required, such as moving one object to unblock another's path or goal.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Most agents fail with severe partial observability:</b> Real-world objects are not all visible at the start[cite: 29, 30].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Most agents fail with severe partial observability:</b> Real-world objects are not all visible at the start.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>Existing work often assumes single rooms or high initial visibility (e.g., >60%)[cite: 29, 284]. [cite_start]Realistic tasks, like tidying a house, require agents to actively search for objects that are not initially visible[cite: 30, 31].</p>
+                    <p>Existing work often assumes single rooms or high initial visibility (e.g., >60%). Realistic tasks, like tidying a house, require agents to actively search for objects that are not initially visible.</p>
                 </div>
             </div>
             <hr>
@@ -268,21 +268,21 @@
             </h2>
             
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>End-to-end RL methods struggle to scale:</b> Pure RL fails in complex, long-horizon rearrangement tasks[cite: 23].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>End-to-end RL methods struggle to scale:</b> Pure RL fails in complex, long-horizon rearrangement tasks.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>Reinforcement Learning (RL) methods are not well-suited for the long-horizon, sparse-reward nature of multi-object rearrangement and struggle to scale to complex, multi-room scenarios[cite: 23].</p>
+                    <p>Reinforcement Learning (RL) methods are not well-suited for the long-horizon, sparse-reward nature of multi-object rearrangement and struggle to scale to complex, multi-room scenarios.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Greedy/Modular planners are not optimal:</b> Hand-coded systems lack the flexibility to handle novel problems[cite: 24].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Greedy/Modular planners are not optimal:</b> Hand-coded systems lack the flexibility to handle novel problems.</div>
                 <div class="dropdown-content">
-                    <p>These approaches often use predetermined skill sequences or simple greedy planners. [cite_start]This restricts their ability to find optimal object interaction orders or handle new challenges like blocked paths without extensive retraining[cite: 24].</p>
+                    <p>These approaches often use predetermined skill sequences or simple greedy planners. This restricts their ability to find optimal object interaction orders or handle new challenges like blocked paths without extensive retraining.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Existing benchmarks are too simple:</b> Datasets like RoomR don't test for complex, multi-room challenges[cite: 35].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Existing benchmarks are too simple:</b> Datasets like RoomR don't test for complex, multi-room challenges.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>Current datasets are often limited to single-room settings with only a few objects[cite: 29, 400]. [cite_start]They fail to test for challenges like severe partial observability, large object counts (10-20), or complex spatial dependencies (blocked paths)[cite: 35, 401].</p>
+                    <p>Current datasets are often limited to single-room settings with only a few objects. They fail to test for challenges like severe partial observability, large object counts (10-20), or complex spatial dependencies (blocked paths).</p>
                 </div>
             </div>
             <hr>
@@ -294,26 +294,26 @@
             </h2>
 
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Hierarchical Planning:</b> Separate high-level strategy (what to do) from low-level execution (how to do it)[cite: 36, 40].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Hierarchical Planning:</b> Separate high-level strategy (what to do) from low-level execution (how to do it).</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>A high-level POMDP planner handles strategic, abstract decisions (e.g., 'search for object X', 'move object Y to goal')[cite: 37, 38]. [cite_start]This frees it from low-level details, which are handled by specialized policies (e.g., 'navigate to (x,y)', 'pick object')[cite: 39].</p>
+                    <p>A high-level POMDP planner handles strategic, abstract decisions (e.g., 'search for object X', 'move object Y to goal'). This frees it from low-level details, which are handled by specialized policies (e.g., 'navigate to (x,y)', 'pick object').</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Object-Oriented Beliefs:</b> Factor the problem by object to make it scalable[cite: 14, 37].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Object-Oriented Beliefs:</b> Factor the problem by object to make it scalable.</div>
                 <div class="dropdown-content">
-                    <p>Instead of one massive, intractable belief state, the system maintains a separate, independent belief (a probability distribution over locations) for each object. [cite_start]This leverages Object-Oriented POMDPs (OO-POMDPs) to make planning scalable[cite: 99, 100, 105].</p>
+                    <p>Instead of one massive, intractable belief state, the system maintains a separate, independent belief (a probability distribution over locations) for each object. This leverages Object-Oriented POMDPs (OO-POMDPs) to make planning scalable.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Jointly Optimize Exploration and Manipulation:</b> The planner reasons under uncertainty to make smart decisions[cite: 38].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Jointly Optimize Exploration and Manipulation:</b> The planner reasons under uncertainty to make smart decisions.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>The high-level planner can optimally decide whether it's more efficient to continue searching for a missing object or to rearrange an object it has already found, based on its current belief state[cite: 38].</p>
+                    <p>The high-level planner can optimally decide whether it's more efficient to continue searching for a missing object or to rearrange an object it has already found, based on its current belief state.</p>
                 </div>
             </div>
             
             <img src="./resources/hoo_pomdp_example.png" alt="HOO-POMDP Example Scenario" class="visible-image" style="width: 80%; background-color: white;">
-            [cite_start]<p class="table-caption" style="text-align: center; margin-top: -10px;">Example of complex spatial reasoning: Object 2 blocks the path for Object 3, and Object 3 blocks the goal for Object 1. The planner must find the sequence: Move 2, then 3, then 1[cite: 45].</p>
+            <p class="table-caption" style="text-align: center; margin-top: -10px;">Example of complex spatial reasoning: Object 2 blocks the path for Object 3, and Object 3 blocks the goal for Object 1. The planner must find the sequence: Move 2, then 3, then 1.</p>
             <hr>
         </div>
 
@@ -323,21 +323,21 @@
             </h2>
 
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>A cyclic system:</b> Perception → Belief Update → Abstract Planning → Policy Execution[cite: 143].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>A cyclic system:</b> Perception → Belief Update → Abstract Planning → Policy Execution.</div>
                 <div class="dropdown-content">
-                    <p>The agent executes a low-level action, gets a new RGB/Depth observation, and uses it to update its object-factored belief state. [cite_start]This belief is then abstracted into a discrete state for the high-level POMDP planner, which chooses the next sub-goal (abstract action) [cite: 143-148].</p>
+                    <p>The agent executes a low-level action, gets a new RGB/Depth observation, and uses it to update its object-factored belief state. This belief is then abstracted into a discrete state for the high-level POMDP planner, which chooses the next sub-goal (abstract action).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Abstraction bridges the gap:</b> Converts continuous belief probabilities into a discrete planner state[cite: 15, 146].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Abstraction bridges the gap:</b> Converts continuous belief probabilities into a discrete planner state.</div>
                 <div class="dropdown-content">
-                    <p>The belief state (probabilities over all grid cells) is abstracted into a discrete state for the planner. [cite_start]This includes sampling reachable `pick` locations (based on belief) and `place` locations (near goals/receptacles)[cite: 146, 208, 209, 218].</p>
+                    <p>The belief state (probabilities over all grid cells) is abstracted into a discrete state for the planner. This includes sampling reachable `pick` locations (based on belief) and `place` locations (near goals/receptacles).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Low-Level Policies execute sub-goals:</b> A* for navigation, trained RL agents for interaction[cite: 181, 186].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Low-Level Policies execute sub-goals:</b> A* for navigation, trained RL agents for interaction.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>Abstract actions like `Move_AB` or `Rotate` are executed by an A* pathfinder[cite: 185, 189]. [cite_start]The `PickPlace` action is a 3-stage policy: an RL model to Pick, A* to navigate, and another RL model to Place[cite: 186, 193].</p>
+                    <p>Abstract actions like `Move_AB` or `Rotate` are executed by an A* pathfinder. The `PickPlace` action is a 3-stage policy: an RL model to Pick, A* to navigate, and another RL model to Place.</p>
                 </div>
             </div>
             
@@ -351,21 +351,21 @@
             </h2>
 
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Outperforms all baselines:</b> HOO-POMDP is more robust and flexible than RL (VRR) and hand-coded (FHC, MSS) methods[cite: 276].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Outperforms all baselines:</b> HOO-POMDP is more robust and flexible than RL (VRR) and hand-coded (FHC, MSS) methods.</div>
                 <div class="dropdown-content">
-                    <p>Our principled planning approach significantly outperforms baselines. [cite_start]VRR (pure RL) fails to scale[cite: 277]. [cite_start]FHC (heuristic) fails to handle detector uncertainty[cite: 278]. [cite_start]MSS (rigid explore-then-rearrange) cannot handle blocked paths[cite: 279].</p>
+                    <p>Our principled planning approach significantly outperforms baselines. VRR (pure RL) fails to scale. FHC (heuristic) fails to handle detector uncertainty. MSS (rigid explore-then-rearrange) cannot handle blocked paths.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Introduces MultiRoomR:</b> A new, challenging benchmark with 2-4 rooms, 10-20 objects, and blocked paths[cite: 237].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Introduces MultiRoomR:</b> A new, challenging benchmark with 2-4 rooms, 10-20 objects, and blocked paths.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>We introduce the MultiRoomR dataset (400 configurations) to test scenarios existing datasets don't: severe partial observability (10-30% initial visibility), larger object counts, and complex spatial dependencies (50% of scenes have blocked paths) [cite: 237, 403-406].</p>
+                    <p>We introduce the MultiRoomR dataset (400 configurations) to test scenarios existing datasets don't: severe partial observability (10-30% initial visibility), larger object counts, and complex spatial dependencies (50% of scenes have blocked paths).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Handles uncertainty robustly:</b> Performance is close to the "Perfect Detector" oracle, even with 50-60% detector success[cite: 270, 273].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Handles uncertainty robustly:</b> Performance is close to the "Perfect Detector" oracle, even with 50-60% detector success.</div>
                 <div class="dropdown-content">
-                    <p>Despite imperfect perception, HOOP solves many problems. [cite_start]The small performance gap between HOOP and the Perfect Detector (PD) oracle shows that our POMDP planner effectively handles partial observability and detector failures [cite: 270-273].</p>
+                    <p>Despite imperfect perception, HOOP solves many problems. The small performance gap between HOOP and the Perfect Detector (PD) oracle shows that our POMDP planner effectively handles partial observability and detector failures.</p>
                 </div>
             </div>
 
@@ -381,12 +381,13 @@
                             <th rowspan="3" class="diff-col">#BP</th>
                             <th rowspan="3" class="diff-col">#Rm</th>
                             <th rowspan="3" class="diff-col">#V</th>
-                            <th colspan="12" class="header-baselines">Methods</th>
+                            <th colspan="3" class="header-ours"><b>HOOP (Ours)</b></th>
+                            <th colspan="9" class="header-baselines">Baselines</th>
                             <th colspan="3" class="header-ablations">Ablation</th>
                             <th colspan="6" class="header-oracles">Oracle Settings</th>
                         </tr>
                         <tr>
-                            <th colspan="3" style="background-color: #ccffcc;"><b>HOOP (Ours)</b></th>
+                            <th colspan="3"><b>HOOP</b></th>
                             <th colspan="3">FHC</th>
                             <th colspan="3">VRR</th>
                             <th colspan="3">MSS</th>
@@ -541,7 +542,7 @@
                             <td>8</td><td>26</td><td>565</td>
                         </tr>
                         <tr>
-                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1</td><td>0</td><td>0</td><td>2-3</td><td>2</td>
+                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1G</td><td>0</td><td>0</td><td>2</td><td>2-3</td>
                             <td><b>46</b></td><td><b>68</b></td><td><b>352</b></td><td><b>3.42</b></td>
                             <td>2</td><td>12</td><td>875</td>
                         </tr>
@@ -552,7 +553,7 @@
                             <td>0</td><td>7</td><td>NA</td>
                         </tr>
                         <tr>
-                            <td>2</td><td>1"</td><td>1</td><td>2-3</td><td>2</td>
+                            <td>2</td><td>1</td><td>1</td><td>2</td><td>2-3</td>
                             <td><b>21</b></td><td><b>49</b></td><td><b>789</b></td><td><b>8.98</b></td>
                             <td>0</td><td>3</td><td>NA</td>
                         </tr>
@@ -568,21 +569,21 @@
             </h2>
 
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Hierarchical planning is critical:</b> A "flat" planner (HOOP-HP) fails completely, with 0-9% success[cite: 275, 245].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Hierarchical planning is critical:</b> A "flat" planner (HOOP-HP) fails completely, with 0-9% success.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>The `HOOP-HP` ablation, which removes the hierarchy and plans directly in the low-level action space, shows a 'substantial performance gap'[cite: 275]. [cite_start]Table 1 shows its Scene Success drops to near-zero on complex problems, proving the low-level action space is intractable[cite: 245].</p>
+                    <p>The `HOOP-HP` ablation, which removes the hierarchy and plans directly in the low-level action space, shows a 'substantial performance gap'. Table 1 shows its Scene Success drops to near-zero on complex problems, proving the low-level action space is intractable.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Strategic lookahead is essential:</b> A greedy MCTS planner (depth 1) fails to solve almost any problems[cite: 476, 477].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Strategic lookahead is essential:</b> A greedy MCTS planner (depth 1) fails to solve almost any problems.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>As shown in Table 3, an MCTS search depth of 1 (HOOP-MCTS 1) is too myopic and fails to get a useful reward signal[cite: 477, 488]. [cite_start]Our full model uses a depth of 12, showing that lookahead is necessary to make strategic decisions[cite: 476].</p>
+                    <p>As shown in Table 3, an MCTS search depth of 1 (HOOP-MCTS 1) is too myopic and fails to get a useful reward signal. Our full model uses a depth of 12, showing that lookahead is necessary to make strategic decisions.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Principled planning > simple heuristics:</b> The FHC baseline is brittle and cannot handle uncertainty or complex paths[cite: 278, 279].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Principled planning > simple heuristics:</b> The FHC baseline is brittle and cannot handle uncertainty or complex paths.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>The `FHC` (Frontier Exploration) baseline uses a simple 'explore-then-rearrange' heuristic[cite: 249, 251]. [cite_start]It fails to handle object detection failures because it's not belief-based, and it cannot reason about complex spatial dependencies like blocked paths[cite: 278, 279].</p>
+                    <p>The `FHC` (Frontier Exploration) baseline uses a simple 'explore-then-rearrange' heuristic. It fails to handle object detection failures because it's not belief-based, and it cannot reason about complex spatial dependencies like blocked paths.</p>
                 </div>
             </div>
             <hr>
@@ -594,31 +595,31 @@
             </h2>
 
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Perception:</b> YoloV10 trained on 10k images from 500 AI2Thor scenes[cite: 374, 376].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Perception:</b> YoloV10 trained on 10k images from 500 AI2Thor scenes.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>We trained a YoloV10-Large (25M parameters) for 500 epochs[cite: 376, 377]. [cite_start]The resulting True Positive (TP) and False Positive (FP) rates for each object class (see Table 2 in paper) are used to build the probabilistic observation model for the POMDP[cite: 383, 410].</p>
+                    <p>We trained a YoloV10-Large (25M parameters) for 500 epochs. The resulting True Positive (TP) and False Positive (FP) rates for each object class (see Table 2 in paper) are used to build the probabilistic observation model for the POMDP.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Planner:</b> PO-UCT (Partially Observable UCT) searches over action-observation histories[cite: 167, 168].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Planner:</b> PO-UCT (Partially Observable UCT) searches over action-observation histories.</div>
                 <div class="dropdown-content">
-                    <p>The planner samples a state from the current belief, builds a search tree using UCT action selection, and runs rollouts to estimate value. [cite_start]The full algorithm is provided in the paper's appendix (Algorithm 3) [cite: 168-172, 483].</p>
+                    <p>The planner samples a state from the current belief, builds a search tree using UCT action selection, and runs rollouts to estimate value. The full algorithm is provided in the paper's appendix (Algorithm 3).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Low-Level Policies:</b> A* for navigation, PPO-trained RL agents for Pick/Place[cite: 185, 186, 193].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Low-Level Policies:</b> A* for navigation, PPO-trained RL agents for Pick/Place.</div>
                 <div class="dropdown-content">
-                    [cite_start]<p>The RL policies were trained for 5 million steps using PPO[cite: 491, 492]. [cite_start]The Pick and Place policies are given navigation actions so they can finely adjust the agent's position before an interaction, making them more robust[cite: 504].</p>
+                    <p>The RL policies were trained for 5 million steps using PPO. The Pick and Place policies are given navigation actions so they can finely adjust the agent's position before an interaction, making them more robust.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>New Dataset (MultiRoomR):</b> 400 configurations, 2-4 rooms, 10-20 objects[cite: 237, 238, 438].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>New Dataset (MultiRoomR):</b> 400 configurations, 2-4 rooms, 10-20 objects.</div>
                 <div class="dropdown-content">
                     <p>We introduce this new benchmark to test more realistic scenarios. Key features include:
                     <ul>
-                        [cite_start]<li><b>Severe Partial Observability:</b> Only 10-30% of objects are visible at the start[cite: 237, 443].</li>
-                        [cite_start]<li><b>Complex Dependencies:</b> 50% of scenes contain blocked paths, and others include blocked goals and object swaps[cite: 405, 469, 470].</li>
-                        [cite_start]<li><b>Scalability:</b> Tasks involve 10, 15, or 20 objects, forcing planners to be efficient[cite: 237, 404].</li>
+                        <li><b>Severe Partial Observability:</b> Only 10-30% of objects are visible at the start.</li>
+                        <li><b>Complex Dependencies:</b> 50% of scenes contain blocked paths, and others include blocked goals and object swaps.</li>
+                        <li><b>Scalability:</b> Tasks involve 10, 15, or 20 objects, forcing planners to be efficient.</li>
                     </ul>
                     </p>
                 </div>
@@ -632,21 +633,21 @@
             </h2>
             
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>A scalable, robust solution for a core Embodied AI task:</b> Planning for home assistant robots[cite: 19, 21].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>A scalable, robust solution for a core Embodied AI task:</b> Planning for home assistant robots.</div>
                 <div class="dropdown-content">
-                    <p>This provides a practical and scalable method for multi-object rearrangement, a key skill for any future home assistant robot. [cite_start]It robustly handles uncertainty and complexity where pure RL and simple heuristics fail[cite: 22, 276, 280].</p>
+                    <p>This provides a practical and scalable method for multi-object rearrangement, a key skill for any future home assistant robot. It robustly handles uncertainty and complexity where pure RL and simple heuristics fail.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>Integrates hierarchical abstraction with formal POMDP planning:</b> A principled way to combine strategy and control[cite: 36, 40].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>Integrates hierarchical abstraction with formal POMDP planning:</b> A principled way to combine strategy and control.</div>
                 <div class="dropdown-content">
-                    <p>Our work shows how to effectively combine high-level, strategic planning under uncertainty (POMDP) with low-level continuous control (RL/A* policies). [cite_start]The hierarchy and abstraction are key to making the problem tractable[cite: 39, 40, 275].</p>
+                    <p>Our work shows how to effectively combine high-level, strategic planning under uncertainty (POMDP) with low-level continuous control (RL/A* policies). The hierarchy and abstraction are key to making the problem tractable.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                [cite_start]<div class="dropdown-header"><span class="icon">▶</span><b>A new, challenging benchmark (MultiRoomR) for the community:</b> Pushes research beyond simple problems[cite: 16, 35].</div>
+                <div class="dropdown-header"><span class="icon">▶</span><b>A new, challenging benchmark (MultiRoomR) for the community:</b> Pushes research beyond simple problems.</div>
                 <div class="dropdown-content">
-                    <p>By releasing MultiRoomR, we move the community beyond simplistic single-room datasets. [cite_start]We provide a benchmark to test systems on more realistic challenges, including severe partial observability and complex spatial dependencies [cite: 35, 403-407].</p>
+                    <p>By releasing MultiRoomR, we move the community beyond simplistic single-room datasets. We provide a benchmark to test systems on more realistic challenges, including severe partial observability and complex spatial dependencies.</p>
                 </div>
             </div>
         </div>
