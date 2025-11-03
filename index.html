@@ -148,6 +148,17 @@
     .header-ablations { background-color: #cceeff !important; } /* Light Blue */
     .header-oracles { background-color: #fff0b3 !important; } /* Light Yellow */
 
+    /* NEW Color coding for HOO-POMDP */
+    /* Scene Success (SS) - Turquoise */
+    .ss-dark { background-color: #00A3A1; color: white; } /* >= 50 */
+    .ss-med { background-color: #64D1C6; } /* 30-49 */
+    .ss-light { background-color: #C8F1EA; } /* 15-29 */
+    
+    /* Object Success (OS) - Violet/Plum */
+    .os-dark { background-color: #BBA0E5; } /* >= 75 */
+    .os-med { background-color: #DCC4F6; } /* 60-74 */
+    .os-light { background-color: #F4EBFC; } /* 40-59 */
+
   </style>
 </head>
 <body>
@@ -185,7 +196,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://arxiv.org/abs/2412.01348"
+                <a href="https://arxiv.org/pdf/2412.01348"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
@@ -408,105 +419,105 @@
                     <tbody>
                         <tr>
                             <td class="domain-col">RoomR</td><td class="diff-col">5</td><td>0</td><td>1</td><td>3-4</td>
-                            <td><b>49</b></td><td><b>71</b></td><td><b>211</b></td>
-                            <td>38</td><td>58</td><td>269</td>
+                            <td class="ss-med"><b>49</b></td><td class="os-med"><b>71</b></td><td><b>211</b></td>
+                            <td class="ss-med">38</td><td class="os-light">58</td><td>269</td>
                             <td>7</td><td>31</td><td>256</td>
-                            <td>21</td><td>44</td><td>267</td>
+                            <td class="ss-light">21</td><td class="os-light">44</td><td>267</td>
                             <td>13</td><td>33</td><td>302</td>
-                            <td>63</td><td>88</td><td>176</td>
-                            <td>62</td><td>87</td><td>189</td>
+                            <td class="ss-dark">63</td><td class="os-dark">88</td><td>176</td>
+                            <td class="ss-dark">62</td><td class="os-dark">87</td><td>189</td>
                         </tr>
                         <tr>
                             <td class="domain-col">Proc</td><td class="diff-col">5</td><td>0</td><td>2</td><td>2-3</td>
-                            <td><b>46</b></td><td><b>68</b></td><td><b>352</b></td>
-                            <td>32</td><td>61</td><td>411</td>
+                            <td class="ss-med"><b>46</b></td><td class="os-med"><b>68</b></td><td><b>352</b></td>
+                            <td class="ss-med">32</td><td class="os-med">61</td><td>411</td>
                             <td>2</td><td>19</td><td>382</td>
                             <td>14</td><td>29</td><td>395</td>
                             <td>9</td><td>29</td><td>410</td>
-                            <td>60</td><td>82</td><td>203</td>
-                            <td>60</td><td>81</td><td>269</td>
+                            <td class="ss-dark">60</td><td class="os-dark">82</td><td>203</td>
+                            <td class="ss-dark">60</td><td class="os-dark">81</td><td>269</td>
                         </tr>
                         <tr><td colspan="22" style="background-color: #f0f0f0; height: 8px; border: 0;"></td></tr>
                         <tr>
                             <td rowspan="8" class="domain-col">Multi RoomR</td>
                             <td rowspan="2" class="diff-col">10</td><td>0</td><td>2</td><td>2-3</td>
-                            <td><b>32</b></td><td><b>65</b></td><td><b>710</b></td>
-                            <td>20</td><td>44</td><td>931</td>
+                            <td class="ss-med"><b>32</b></td><td class="os-med"><b>65</b></td><td><b>710</b></td>
+                            <td class="ss-light">20</td><td class="os-light">44</td><td>931</td>
                             <td>0</td><td>13</td><td>NA</td>
                             <td>8</td><td>25</td><td>920</td>
                             <td>5</td><td>25</td><td>1029</td>
-                            <td>41</td><td>78</td><td>457</td>
-                            <td>40</td><td>78</td><td>529</td>
+                            <td class="ss-med">41</td><td class="os-dark">78</td><td>457</td>
+                            <td class="ss-med">40</td><td class="os-dark">78</td><td>529</td>
                         </tr>
                         <tr>
                             <td>1</td><td>2</td><td>2-3</td>
-                            <td><b>21</b></td><td><b>49</b></td><td><b>789</b></td>
+                            <td class="ss-light"><b>21</b></td><td class="os-light"><b>49</b></td><td><b>789</b></td>
                             <td>12</td><td>38</td><td>993</td>
                             <td>0</td><td>9</td><td>NA</td>
                             <td>NC</td><td>NC</td><td>NC</td>
                             <td>2</td><td>19</td><td>1092</td>
-                            <td>33</td><td>69</td><td>489</td>
-                            <td>29</td><td>67</td><td>587</td>
+                            <td class="ss-med">33</td><td class="os-med">69</td><td>489</td>
+                            <td class="ss-light">29</td><td class="os-med">67</td><td>587</td>
                         </tr>
                         <tr>
                             <td rowspan="2" class="diff-col">10</td><td>0</td><td>3-4</td><td>1-2</td>
-                            <td><b>30</b></td><td><b>62</b></td><td><b>1189</b></td>
-                            <td>19</td><td>34</td><td>1345</td>
+                            <td class="ss-med"><b>30</b></td><td class="os-med"><b>62</b></td><td><b>1189</b></td>
+                            <td class="ss-light">19</td><td>34</td><td>1345</td>
                             <td>0</td><td>8</td><td>NA</td>
                             <td>0</td><td>14</td><td>NA</td>
                             <td>3</td><td>16</td><td>1408</td>
-                            <td>39</td><td>75</td><td>726</td>
-                            <td>37</td><td>74</td><td>834</td>
+                            <td class="ss-med">39</td><td class="os-dark">75</td><td>726</td>
+                            <td class="ss-med">37</td><td class="os-med">74</td><td>834</td>
                         </tr>
                         <tr>
                             <td>1</td><td>3-4</td><td>1-2</td>
-                            <td><b>18</b></td><td><b>44</b></td><td><b>1321</b></td>
+                            <td class="ss-light"><b>18</b></td><td class="os-light"><b>44</b></td><td><b>1321</b></td>
                             <td>9</td><td>26</td><td>1490</td>
                             <td>0</td><td>5</td><td>NA</td>
                             <td>NC</td><td>NC</td><td>NC</td>
                             <td>1</td><td>7</td><td>1549</td>
-                            <td>32</td><td>70</td><td>789</td>
-                            <td>31</td><td>70</td><td>985</td>
+                            <td class="ss-med">32</td><td class="os-med">70</td><td>789</td>
+                            <td class="ss-med">31</td><td class="os-med">70</td><td>985</td>
                         </tr>
                         <tr>
                             <td rowspan="2" class="diff-col">15</td><td>0</td><td>3-4</td><td>2-3</td>
-                            <td><b>22</b></td><td><b>59</b></td><td><b>1228</b></td>
+                            <td class="ss-light"><b>22</b></td><td class="os-light"><b>59</b></td><td><b>1228</b></td>
                             <td>12</td><td>31</td><td>1605</td>
                             <td>0</td><td>9</td><td>NA</td>
                             <td>0</td><td>11</td><td>NA</td>
                             <td>0</td><td>5</td><td>NA</td>
-                            <td>32</td><td>78</td><td>895</td>
-                            <td>30</td><td>74</td><td>921</td>
+                            <td class="ss-med">32</td><td class="os-dark">78</td><td>895</td>
+                            <td class="ss-med">30</td><td class="os-med">74</td><td>921</td>
                         </tr>
                         <tr>
                             <td>1</td><td>3-4</td><td>2-3</td>
-                            <td><b>14</b></td><td><b>41</b></td><td><b>1416</b></td>
+                            <td>14</td><td class="os-light"><b>41</b></td><td><b>1416</b></td>
                             <td>7</td><td>23</td><td>1886</td>
                             <td>0</td><td>5</td><td>NA</td>
                             <td>NC</td><td>NC</td><td>NC</td>
                             <td>0</td><td>6</td><td>NA</td>
-                            <td>29</td><td>71</td><td>988</td>
-                            <td>25</td><td>69</td><td>965</td>
+                            <td class="ss-light">29</td><td class="os-med">71</td><td>988</td>
+                            <td class="ss-light">25</td><td class="os-med">69</td><td>965</td>
                         </tr>
                         <tr>
                             <td rowspan="2" class="diff-col">20</td><td>0</td><td>3-4</td><td>2-4</td>
-                            <td><b>17</b></td><td><b>55</b></td><td><b>1621</b></td>
+                            <td class="ss-light"><b>17</b></td><td class="os-light"><b>55</b></td><td><b>1621</b></td>
                             <td>0</td><td>18</td><td>NA</td>
                             <td>0</td><td>6</td><td>NA</td>
                             <td>0</td><td>9</td><td>NA</td>
                             <td>0</td><td>5</td><td>NA</td>
-                            <td>27</td><td>75</td><td>1168</td>
-                            <td>27</td><td>74</td><td>1197</td>
+                            <td class="ss-light">27</td><td class="os-dark">75</td><td>1168</td>
+                            <td class="ss-light">27</td><td class="os-med">74</td><td>1197</td>
                         </tr>
                         <tr>
                             <td>1</td><td>3-4</td><td>2-4</td>
-                            <td><b>10</b></td><td><b>36</b></td><td><b>1786</b></td>
+                            <td>10</td><td>36</td><td><b>1786</b></td>
                             <td>0</td><td>11</td><td>NA</td>
                             <td>0</td><td>4</td><td>NA</td>
                             <td>NC</td><td>NC</td><td>NC</td>
                             <td>0</td><td>4</td><td>NA</td>
-                            <td>22</td><td>70</td><td>1307</td>
-                            <td>20</td><td>68</td><td>1336</td>
+                            <td class="ss-light">22</td><td class="os-med">70</td><td>1307</td>
+                            <td class="ss-light">20</td><td class="os-med">68</td><td>1336</td>
                         </tr>
                     </tbody>
                 </table>
@@ -538,23 +549,23 @@
                     <tbody>
                         <tr>
                             <td class="domain-col">RoomR</td><td class="diff-col">5</td><td>1</td><td>0</td><td>0</td><td>1</td><td>3-4</td>
-                            <td><b>49</b></td><td><b>71</b></td><td><b>211</b></td><td><b>1.61</b></td>
+                            <td class="ss-med"><b>49</b></td><td class="os-med"><b>71</b></td><td><b>211</b></td><td><b>1.61</b></td>
                             <td>8</td><td>26</td><td>565</td>
                         </tr>
                         <tr>
-                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1G</td><td>0</td><td>0</td><td>2</td><td>2-3</td>
-                            <td><b>46</b></td><td><b>68</b></td><td><b>352</b></td><td><b>3.42</b></td>
+                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2-3</td>
+                            <td class="ss-med"><b>46</b></td><td class="os-med"><b>68</b></td><td><b>352</b></td><td><b>3.42</b></td>
                             <td>2</td><td>12</td><td>875</td>
                         </tr>
                         <tr>
                             <td rowspan="2" class="domain-col">Multi RoomR</td>
                             <td rowspan="2" class="diff-col">10</td><td>1</td><td>1</td><td>0</td><td>2</td><td>2-3</td>
-                            <td><b>32</b></td><td><b>65</b></td><td><b>710</b></td><td><b>7.89</b></td>
+                            <td class="ss-med"><b>32</b></td><td class="os-med"><b>65</b></td><td><b>710</b></td><td><b>7.89</b></td>
                             <td>0</td><td>7</td><td>NA</td>
                         </tr>
                         <tr>
                             <td>2</td><td>1</td><td>1</td><td>2</td><td>2-3</td>
-                            <td><b>21</b></td><td><b>49</b></td><td><b>789</b></td><td><b>8.98</b></td>
+                            <td class="ss-light"><b>21</b></td><td class="os-light"><b>49</b></td><td><b>789</b></td><td><b>8.98</b></td>
                             <td>0</td><td>3</td><td>NA</td>
                         </tr>
                     </tbody>
