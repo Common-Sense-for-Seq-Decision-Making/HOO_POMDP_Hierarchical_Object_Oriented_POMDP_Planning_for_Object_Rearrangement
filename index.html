@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-G259HS8FNT"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-G259HS8FNT');
+  </script>
+
+  <meta charset="utf-8">
+  <meta name="description" content="GABAR: Graph Attention-Based Action Ranking for Relational Policy Learning">
+  <meta name="keywords" content="graph neural networks (GNN), policy learning, planning, relational learning">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GABAR: Graph Attention-Based Action Ranking for Relational Policy Learning </title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <!-- <link rel="stylesheet" href="./static/css/fontawesome.all.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+  <script src="https://www.youtube.com/iframe_api"></script>
+  <script src="./static/js/ajax.googleapis.com_ajax_libs_jquery_3.5.1_jquery.min.js"></script>
+  <script src="./static/js/isInViewport.min.js"></script>
+  <!-- <script defer src="./static/js/fontawesome.all.min.js"></script> -->
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+
+  <link rel="icon" href="./resources/favicon.ico">
+  
+  <script src="https://kit.fontawesome.com/006a5775d5.js" crossorigin="anonymous"></script>
+  <style>
+    .full-width-text {
+        text-align: center;
+        width: 100%;
+        max-width: none;
+    }
+    .full-width-text ul, .full-width-text ol {
+        display: inline-block;
+        text-align: left;
+        margin: 20px auto;
+    }
+    img {
+        margin: 20px auto;
+        display: block;
+        max-width: 100%;
+    }
+</style>
+</head>
+<body>
+  
+<section class="hero">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">GABAR: Graph Attention-Based Action Ranking for Relational Policy Learning</h1>
+          <div class="is-size-4 publication-authors">
+            <span class="author-block">
+              <!-- <TBD> git io pages </TBD> -->
+              <a href="https://www.linkedin.com/in/rajeshdm/">Rajesh Mangananvar</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="https://web.engr.oregonstate.edu/~leestef/">Stefan Lee</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <a href="https://web.engr.oregonstate.edu/~afern/">Alan Fern</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+              <a href="https://web.engr.oregonstate.edu/~tadepall/">Prasad Tadepalli</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+
+              <br><br>
+              <img src="./resources/OSU_horizontal_2C_O_over_B.png" width="20%"></img><br><br>
+              <!-- <span class="brmod">CoRL 2024</span><br> -->
+            </span>
+          </div>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="./resources/19_GABAR_Graph_Attention_Based.pdf"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- arXiv Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2412.04752"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+
+  <div class="container">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-two-thirds">
+        <h2 class="title is-2">Abstract</h2>
+        <div class="subtitle has-text-justified">
+          <p>
+            We propose a novel approach to learn relational policies for classical planning based on learning to rank actions. We introduce a new graph representation that explicitly captures action information and propose a Graph Neural Network architecture augmented with Gated Recurrent Units (GRUs) to learn action rankings. Our model is trained on small problem instances and generalizes to significantly larger instances where traditional planning becomes computationally expensive. Experimental results across standard planning benchmarks demonstrate that our action-ranking approach achieves generalization to significantly larger problems than those used in training.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-2">Introduction</h2>
+        <div class="subtitle full-width-text">
+          <p>
+            Classical planning tackles the problem of finding action sequences to achieve goals in deterministic environments. While traditional planners can solve small problems optimally using search and heuristics, they often struggle with scalability. This has motivated research into learning general relational policies from small solved problems, which can then be applied to significantly larger instances.
+          </p>
+          <p>
+            Learning approaches in automated planning have traditionally focused on learning heuristic functions to guide search algorithms. These methods typically learn a value function that estimates the distance to the goal and integrate it within classical search algorithms like A* or greedy best-first search. The learned heuristics help focus the search but still require explicit search during plan execution.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-2">GABAR Framework</h2>
+        <div class="subtitle full-width-text">
+          <img src="./resources/gabar_framework.png" alt="GABAR Framework">
+          <!--
+          <p>
+            Our architecture consists of three main components:
+          </p>
+          <ul>
+            <li>Graph Representation: A novel approach that explicitly encodes objects, predicates, and actions</li>
+            <li>GNN Encoder: Processes the graph through multiple message-passing layers with a global node</li>
+            <li>Action Decoder: Uses GRUs and beam search for robust action selection</li>
+          </ul>
+          -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-2">Data Collection and Training</h2>
+        <div class="subtitle full-width-text">
+          <img src="./resources/training_process.png" alt="Training Process Overview">
+          
+          <p>Our training pipeline consists of four main steps:</p>
+          
+          <h3 class="title is-4 mt-4">1. Training Data Generation</h3>
+          <p>
+            For each planning domain, we generate a set of small problem instances that can be solved optimally. These instances are carefully chosen to be small enough for optimal planning but complex enough to capture key domain features.
+          </p>
+
+          <h3 class="title is-4 mt-4">2. Solution Collection</h3>
+          <p>
+            We use an optimal planner to solve these small instances, generating a dataset of optimal solutions. For states with multiple optimal actions, we randomly select one to avoid biasing the model.
+          </p>
+
+          <h3 class="title is-4 mt-4">3. Training Process</h3>
+          <p>
+            Each training example consists of:
+          </p>
+          <ul>
+            <li>A planning state s converted to our graph representation</li>
+            <li>Goal specification G also encoded in the graph</li>
+            <li>The optimal action a* from the solution</li>
+          </ul>
+
+         
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full">
+        <h2 class="title is-2">Results</h2>
+        <div class="subtitle full-width-text">
+          <img src="./resources/gabar_results.png" alt="Results Table">
+          <p>
+            Our experimental results show:
+          </p>
+          <ul>
+            <li>Action-aware graph representations are crucial for better policy learning</li>
+            <li>GRU-augmented message passing improves sequential reasoning</li>
+            <li>Attention mechanisms enable better generalization to larger problems</li>
+            <li>The approach bridges the gap between learning and classical planning</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container content">
+    <h2 class="titile">BibTeX</h2>
+    <pre><code>
+      @article{mangannavar2024gabar,
+        title={GABAR: Graph Attention-Based Action Ranking for Relational Policy Learning},
+        author={Mangannavar, Rajesh and Lee, Stefan and Fern, Alan and Tadepalli, Prasad},
+        journal={arXiv preprint arXiv:2412.04752},
+        year={2024}
+        primaryClass={cs.LG},
+        url={https://arxiv.org/pdf/2412.04752}
+      }
+</code></pre>
+  </div>
+</section>
+
+<!-- https://tinyurl.com/mtsbv5ka -->
+
+
+</html>
