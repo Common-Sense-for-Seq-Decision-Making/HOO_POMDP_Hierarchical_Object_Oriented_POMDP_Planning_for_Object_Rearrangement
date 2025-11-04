@@ -25,18 +25,17 @@
   <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="./static/css/index.css">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+  
   <link rel="icon" href="./resources/favicon.ico">
   
   <script src="https://kit.fontawesome.com/006a5775d5.js" crossorigin="anonymous"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
   <style>
-    /* Custom styles for dropdowns */
+    /* --- NEW Accordion Dropdown Styles --- */
     .section-toggle {
-        font-size: 0.8rem; /* Made smaller */
-        font-weight: normal; /* Made lighter */
+        font-size: 0.8rem;
+        font-weight: normal;
         cursor: pointer;
         color: #3273dc; /* Bulma link color */
         margin-left: 15px;
@@ -47,35 +46,89 @@
         text-decoration: underline;
     }
 
+    /* This is the new card container */
+    .dropdown-item {
+        margin-bottom: 1rem; /* Add spacing between dropdowns */
+    }
+
     .dropdown-header {
         font-size: 1.1rem;
         font-weight: 600;
         cursor: pointer;
-        padding: 12px 0;
+        padding: 15px 20px;
+        
         display: flex;
-        align-items: center;
+        align-items: center; /* Vertically center icon and text */
+        justify-content: space-between; /* Pushes icon to the right */
+
+        background-color: #ffffff;
+        border: 1px solid #dbdbdb;
+        border-radius: 5px;
+        box-shadow: 0 3px 5px rgba(0,0,0,0.03);
+        
+        transition: all 0.2s ease-in-out;
     }
+    
+    .dropdown-header:hover {
+        background-color: #f9f9f9;
+        box-shadow: 0 5px 8px rgba(0,0,0,0.05);
+        transform: translateY(-2px);
+    }
+    
+    /* Style the text part of the header to wrap properly */
+    .header-text {
+        flex-grow: 1; /* Allows text to take up available space */
+        padding-right: 15px; /* Space between text and icon */
+        /* This part is critical for mobile */
+        word-break: break-word;
+    }
+
+    /* Style the icon */
     .dropdown-header .icon {
-        margin-right: 10px;
+        flex-shrink: 0; /* Prevents icon from shrinking */
         transition: transform 0.2s ease-in-out;
-        width: 15px;
-        display: inline-block;
-        font-family: monospace;
         font-size: 1rem;
+        color: #7a7a7a; /* Make icon a bit subtler */
     }
+
+    /* Animate the icon when active */
     .dropdown-header.active .icon {
-        transform: rotate(90deg);
+        transform: rotate(180deg);
+    }
+    .dropdown-header.active {
+        background-color: #f5f5ff; /* Lightened active color */
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
     }
 
     .dropdown-content {
         display: none;
-        padding: 10px 0 15px 25px;
-        margin-left: 10px;
-        border-left: 3px solid #dbdbdb; /* Bulma grey-light */
+        padding: 20px 25px;
+        background-color: #ffffff;
+        border: 1px solid #dbdbdb;
+        border-top: none; /* Avoid double border */
+        
+        /* Connect it to the header */
+        margin-top: -1px; 
+        border-radius: 0 0 5px 5px;
+        
+        /* Remove old border-left styles */
+        margin-left: 0;
+        border-left: none;
     }
     .dropdown-content p, .dropdown-content ul {
         font-size: 1rem;
         line-height: 1.6;
+
+        /* --- THIS IS THE NEW FIX --- */
+        white-space: normal;  /* Resets any 'nowrap' from conflicts */
+        word-break: break-word; /* Forces long words/text to wrap */
+    }
+    
+    /* --- FIX FOR BIBTEX OVERFLOW --- */
+    pre, code {
+        white-space: pre-wrap;  /* Allows preformatted text to wrap */
+        word-break: break-all; /* Breaks long strings if necessary */
     }
 
     /* Keep specified images always visible */
@@ -253,19 +306,40 @@
             </h2>
             
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Embodied AI rearrangement is a fundamental challenge:</b> It's a core task for home assistant robots.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Embodied AI rearrangement is a fundamental challenge:</b> It's a core task for home assistant robots.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Multi-object rearrangement with egocentric vision requires integrating perception, planning, navigation, and manipulation, especially in partially observable, multi-room settings common in everyday life.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Real-world tasks are complex:</b> Scenarios involve blocked paths, obstructed goals, and spatial dependencies.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Real-world tasks are complex:</b> Scenarios involve blocked paths, obstructed goals, and spatial dependencies.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Simple greedy planners or fixed skill sequences can't determine the optimal order to move objects. They fail when spatial reasoning is required, such as moving one object to unblock another's path or goal.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Most agents fail with severe partial observability:</b> Real-world objects are not all visible at the start.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Most agents fail with severe partial observability:</b> Real-world objects are not all visible at the start.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Existing work often assumes single rooms or high initial visibility (e.g., >60%). Realistic tasks, like tidying a house, require agents to actively search for objects that are not initially visible.</p>
                 </div>
@@ -279,19 +353,40 @@
             </h2>
             
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>End-to-end RL methods struggle to scale:</b> Pure RL fails in complex, long-horizon rearrangement tasks.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>End-to-end RL methods struggle to scale:</b> Pure RL fails in complex, long-horizon rearrangement tasks.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Reinforcement Learning (RL) methods are not well-suited for the long-horizon, sparse-reward nature of multi-object rearrangement and struggle to scale to complex, multi-room scenarios.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Greedy/Modular planners are not optimal:</b> Hand-coded systems lack the flexibility to handle novel problems.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Greedy/Modular planners are not optimal:</b> Hand-coded systems lack the flexibility to handle novel problems.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>These approaches often use predetermined skill sequences or simple greedy planners. This restricts their ability to find optimal object interaction orders or handle new challenges like blocked paths without extensive retraining.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Existing benchmarks are too simple:</b> Datasets like RoomR don't test for complex, multi-room challenges.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Existing benchmarks are too simple:</b> Datasets like RoomR don't test for complex, multi-room challenges.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Current datasets are often limited to single-room settings with only a few objects. They fail to test for challenges like severe partial observability, large object counts (10-20), or complex spatial dependencies (blocked paths).</p>
                 </div>
@@ -305,19 +400,40 @@
             </h2>
 
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Hierarchical Planning:</b> Separate high-level strategy (what to do) from low-level execution (how to do it).</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Hierarchical Planning:</b> Separate high-level strategy (what to do) from low-level execution (how to do it).
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>A high-level POMDP planner handles strategic, abstract decisions (e.g., 'search for object X', 'move object Y to goal'). This frees it from low-level details, which are handled by specialized policies (e.g., 'navigate to (x,y)', 'pick object').</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Object-Oriented Beliefs:</b> Factor the problem by object to make it scalable.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Object-Oriented Beliefs:</b> Factor the problem by object to make it scalable.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Instead of one massive, intractable belief state, the system maintains a separate, independent belief (a probability distribution over locations) for each object. This leverages Object-Oriented POMDPs (OO-POMDPs) to make planning scalable.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Jointly Optimize Exploration and Manipulation:</b> The planner reasons under uncertainty to make smart decisions.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Jointly Optimize Exploration and Manipulation:</b> The planner reasons under uncertainty to make smart decisions.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>The high-level planner can optimally decide whether it's more efficient to continue searching for a missing object or to rearrange an object it has already found, based on its current belief state.</p>
                 </div>
@@ -334,19 +450,40 @@
             </h2>
 
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>A cyclic system:</b> Perception → Belief Update → Abstract Planning → Policy Execution.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>A cyclic system:</b> Perception → Belief Update → Abstract Planning → Policy Execution.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>The agent executes a low-level action, gets a new RGB/Depth observation, and uses it to update its object-factored belief state. This belief is then abstracted into a discrete state for the high-level POMDP planner, which chooses the next sub-goal (abstract action).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Abstraction bridges the gap:</b> Converts continuous belief probabilities into a discrete planner state.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Abstraction bridges the gap:</b> Converts continuous belief probabilities into a discrete planner state.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>The belief state (probabilities over all grid cells) is abstracted into a discrete state for the planner. This includes sampling reachable `pick` locations (based on belief) and `place` locations (near goals/receptacles).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Low-Level Policies execute sub-goals:</b> A* for navigation, trained RL agents for interaction.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Low-Level Policies execute sub-goals:</b> A* for navigation, trained RL agents for interaction.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Abstract actions like `Move_AB` or `Rotate` are executed by an A* pathfinder. The `PickPlace` action is a 3-stage policy: an RL model to Pick, A* to navigate, and another RL model to Place.</p>
                 </div>
@@ -362,19 +499,40 @@
             </h2>
 
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Outperforms all baselines:</b> HOO-POMDP is more robust and flexible than RL (VRR) and hand-coded (FHC, MSS) methods.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Outperforms all baselines:</b> HOO-POMDP is more robust and flexible than RL (VRR) and hand-coded (FHC, MSS) methods.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Our principled planning approach significantly outperforms baselines. VRR (pure RL) fails to scale. FHC (heuristic) fails to handle detector uncertainty. MSS (rigid explore-then-rearrange) cannot handle blocked paths.</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Introduces MultiRoomR:</b> A new, challenging benchmark with 2-4 rooms, 10-20 objects, and blocked paths.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Introduces MultiRoomR:</b> A new, challenging benchmark with 2-4 rooms, 10-20 objects, and blocked paths.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>We introduce the MultiRoomR dataset (400 configurations) to test scenarios existing datasets don't: severe partial observability (10-30% initial visibility), larger object counts, and complex spatial dependencies (50% of scenes have blocked paths).</p>
                 </div>
             </div>
             <div class="dropdown-item">
-                <div class="dropdown-header"><span class="icon">▶</span><b>Handles uncertainty robustly:</b> Performance is close to the "Perfect Detector" oracle, even with 50-60% detector success.</div>
+                <div class="dropdown-header">
+                    <span class="header-text">
+                        <b>Handles uncertainty robustly:</b> Performance is close to the "Perfect Detector" oracle, even with 50-60% detector success.
+                    </span>
+                    <span class="icon">
+                        <i class="fas fa-chevron-down"></i>
+                    </span>
+                </div>
                 <div class="dropdown-content">
                     <p>Despite imperfect perception, HOOP solves many problems. The small performance gap between HOOP and the Perfect Detector (PD) oracle shows that our POMDP planner effectively handles partial observability and detector failures.</p>
                 </div>
@@ -553,7 +711,7 @@
                             <td>8</td><td>26</td><td>565</td>
                         </tr>
                         <tr>
-                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1</td><td>0</td><td>0</td><td>2</td><td>2-3</td>
+                            <td class="domain-col">Proc</td><td class="diff-col">5</td><td>1D</td><td>0</td><td>0</td><td>2</td><td>2-3</td>
                             <td class="ss-med"><b>46</b></td><td class="os-med"><b>68</b></td><td><b>352</b></td><td><b>3.42</b></td>
                             <td>2</td><td>12</td><td>875</td>
                         </tr>
