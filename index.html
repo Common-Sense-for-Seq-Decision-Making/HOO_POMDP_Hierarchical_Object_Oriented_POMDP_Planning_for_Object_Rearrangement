@@ -340,37 +340,37 @@
                style="width:100%; display:block; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
 
           <!-- SVG Overlay for interactive hotspots -->
-          <svg id="hoo-scene-svg" viewBox="0 0 960 620"
+          <svg id="hoo-scene-svg" viewBox="0 0 958 622"
                style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;">
 
-            <!-- Object 1 hotspot (blue label "1", dining room on right) -->
+            <!-- Object 1 hotspot (blue label "1", dining room) -->
             <g class="hoo-hotspot" data-obj="1" style="pointer-events:all; cursor:pointer;">
-              <circle cx="700" cy="68" r="20" fill="rgba(0,128,255,0.2)" stroke="#00aaff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="703" cy="57" r="18" fill="rgba(0,128,255,0.2)" stroke="#00aaff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 2 hotspot (pink label "2", far right side) -->
+            <!-- Object 2 hotspot (pink label "2", far right bedroom area) -->
             <g class="hoo-hotspot" data-obj="2" style="pointer-events:all; cursor:pointer;">
-              <circle cx="905" cy="285" r="20" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="918" cy="330" r="18" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
             <!-- Object 3 hotspot (yellow label "3" with red box, on couch) -->
             <g class="hoo-hotspot" data-obj="3" style="pointer-events:all; cursor:pointer;">
-              <circle cx="595" cy="290" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="578" cy="330" r="18" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
             <!-- Object 4 hotspot (cyan label "4", kitchen area) -->
             <g class="hoo-hotspot" data-obj="4" style="pointer-events:all; cursor:pointer;">
-              <circle cx="488" cy="72" r="20" fill="rgba(0,255,255,0.2)" stroke="#00ffff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="480" cy="67" r="18" fill="rgba(0,255,255,0.2)" stroke="#00ffff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 5 hotspot (yellow label "5", bedroom left lower) -->
+            <!-- Object 5 hotspot (yellow label "5", bedroom left with pink dashed box) -->
             <g class="hoo-hotspot" data-obj="5" style="pointer-events:all; cursor:pointer;">
-              <circle cx="88" cy="178" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="72" cy="220" r="18" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
             <!-- Object 6 hotspot (yellow label "6", bedroom upper near door) -->
             <g class="hoo-hotspot" data-obj="6" style="pointer-events:all; cursor:pointer;">
-              <circle cx="82" cy="100" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="62" cy="105" r="18" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
             <!-- Path highlights (initially hidden) -->
@@ -822,10 +822,17 @@
                 </div>
             </div>
 
-            <div class="table-caption" style="margin-top: 25px;">
-                <b>Table 1 (from paper):</b> Main comparison of HOO-POMDP (HOOP) against Baselines, Ablations, and Oracles across all datasets.
-            </div>
-            <div class="results-table-container">
+            <!-- Collapsible Tables Section -->
+            <div class="dropdown-item" style="margin-top: 25px;">
+                <div class="dropdown-header">
+                    <span class="icon">▶</span>
+                    <b>View Detailed Results Tables</b> (Click to expand full comparison tables from paper)
+                </div>
+                <div class="dropdown-content">
+                    <div class="table-caption">
+                        <b>Table 1 (from paper):</b> Main comparison of HOO-POMDP (HOOP) against Baselines, Ablations, and Oracles across all datasets.
+                    </div>
+                    <div class="results-table-container">
                 <table class="results-table" style="min-width: 1200px;">
                     <thead>
                         <tr>
@@ -1012,6 +1019,8 @@
                         </tr>
                     </tbody>
                 </table>
+                    </div>
+                </div>
             </div>
             <hr>
         </div>
@@ -1239,20 +1248,20 @@ $(document).ready(function() {
                 order: 'Flexible (after 1-3)'
             },
             '5': {
-                title: 'Object 5 (Yellow, bedroom)',
-                path: 'Yellow/Pink path',
-                status: '<span style="color:#4caf50; font-weight:600;">REACHABLE</span>',
-                blockedBy: 'No blocking dependencies.',
-                solution: 'Can be moved after corridor clears',
-                order: 'Flexible (after 1-3)'
+                title: 'Object 5 (Pink dashed, bedroom)',
+                path: 'Pink/Magenta dashed path',
+                status: '<span style="color:#d32f2f; font-weight:600;">BLOCKED</span>',
+                blockedBy: 'Object 2 blocks the corridor. Cannot reach goal until Object 2 is moved.',
+                solution: 'Wait for Object 2 to clear the shared corridor path',
+                order: 'After Object 2 moves'
             },
             '6': {
-                title: 'Object 6 (Magenta path)',
-                path: 'Magenta path',
-                status: '<span style="color:#4caf50; font-weight:600;">REACHABLE</span>',
-                blockedBy: 'No blocking dependencies. Located near bedroom door.',
-                solution: 'Can be moved when corridor is available',
-                order: 'Flexible (after 1-3)'
+                title: 'Object 6 (Magenta path, bedroom)',
+                path: 'Magenta solid path',
+                status: '<span style="color:#d32f2f; font-weight:600;">BLOCKED</span>',
+                blockedBy: 'Object 2 blocks the corridor path. Shares route with Objects 5 and others.',
+                solution: 'Wait for Object 2 to clear corridor before moving',
+                order: 'After Object 2 moves'
             }
         };
 
