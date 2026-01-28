@@ -212,89 +212,33 @@
     .os-med { background-color: #DCC4F6; } /* 60-74 */
     .os-light { background-color: #F4EBFC; } /* 40-59 */
 
-    /* === Interactive HOO-POMDP Visualization Styles === */
-    .hoo-interactive-container { max-width: 1200px; width: 100%; margin: 0 auto; }
-    .hoo-title { text-align: center; color: #333; margin-bottom: 4px; font-size: 1.3em; font-weight: 700; }
-    .hoo-subtitle { text-align: center; color: #777; font-size: 0.88em; margin-bottom: 16px; }
-    .hoo-layout { display: flex; gap: 14px; align-items: stretch; justify-content: center; flex-wrap: wrap; }
-
-    .hoo-env-panel, .hoo-belief-panel, .hoo-planner-panel {
-        background: white; border-radius: 10px; padding: 16px 14px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-        display: flex; flex-direction: column; align-items: center;
+    /* === Interactive HOO-POMDP Scene Overlay Styles === */
+    .hoo-hotspot circle {
+        transition: all 0.3s ease;
     }
-    .hoo-env-panel { width: 340px; flex-shrink: 0; }
-    .hoo-belief-panel { width: 240px; flex-shrink: 0; align-items: stretch; }
-    .hoo-planner-panel { flex: 1; min-width: 380px; align-items: stretch; }
-
-    .hoo-env-panel h4, .hoo-belief-panel h4, .hoo-planner-panel h4 {
-        font-size: 0.75em; color: #888; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; text-align: center;
+    .hoo-hotspot:hover circle {
+        fill-opacity: 0.5;
+        stroke-width: 4;
+        filter: drop-shadow(0 0 8px currentColor);
     }
-
-    .hoo-arrow { font-size: 1.6em; color: #ccc; align-self: center; padding: 0 4px; }
-
-    .hoo-room, .hoo-object, .hoo-robot { cursor: pointer; transition: opacity 0.2s, filter 0.2s, transform 0.2s; }
-    .hoo-room:hover { opacity: 0.9; }
-    .hoo-object:hover, .hoo-robot:hover { filter: brightness(1.1); transform: scale(1.03); }
-
-    .hoo-dimmed { opacity: 0.15 !important; }
-    .hoo-highlighted { filter: drop-shadow(0 0 5px rgba(0,0,0,0.35)) !important; }
-
-    .hoo-belief-bar { display: flex; align-items: center; gap: 6px; margin: 4px 0; font-size: 0.75em; color: #555; width: 100%; }
-    .hoo-belief-bar-label { width: 55px; text-align: right; font-weight: 600; font-size: 0.9em; }
-    .hoo-belief-bar-track { flex: 1; height: 12px; background: #eee; border-radius: 6px; overflow: hidden; }
-    .hoo-belief-bar-fill { height: 100%; border-radius: 6px; transition: width 0.3s; }
-    .hoo-belief-bar-val { width: 38px; font-size: 0.85em; font-weight: 600; text-align: right; }
-    .hoo-belief-section { margin: 8px 0; padding: 8px 0; border-bottom: 1px solid #eee; transition: background 0.2s; }
-    .hoo-belief-section:last-child { border-bottom: none; }
-    .hoo-belief-title { font-size: 0.7em; font-weight: 700; color: #555; margin-bottom: 4px; }
-
-    .hoo-flow-container { display: flex; flex-direction: column; gap: 10px; }
-    .hoo-flow-stage {
-        background: #f8f9ff; border-radius: 8px; padding: 10px 12px;
-        border-left: 4px solid #5b6abf; transition: all 0.2s;
+    .hoo-pulse {
+        animation: hooPulse 2s infinite;
     }
-    .hoo-flow-stage.active { background: #e8f5e9; border-left-color: #43a047; }
-    .hoo-flow-stage.pending { background: #fff8e1; border-left-color: #ff9800; opacity: 0.7; }
-    .hoo-flow-stage h5 { font-size: 0.72em; color: #666; text-transform: uppercase; margin-bottom: 4px; }
-    .hoo-flow-content { font-size: 0.85em; color: #333; }
-    .hoo-flow-arrow { text-align: center; color: #ccc; font-size: 1.1em; }
-
-    .hoo-subgoal { display: inline-block; padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.82em; margin: 2px; }
-    .hoo-subgoal-move { background: #e3f2fd; color: #1565c0; }
-    .hoo-subgoal-rotate { background: #f3e5f5; color: #7b1fa2; }
-    .hoo-subgoal-pickplace { background: #e8f5e9; color: #2e7d32; }
-
-    .hoo-tooltip {
-        position: fixed; background: #333; color: white;
-        padding: 8px 14px; border-radius: 6px; font-size: 0.82em;
-        pointer-events: none; opacity: 0; transition: opacity 0.15s;
-        z-index: 1000; max-width: 320px; line-height: 1.4;
+    @keyframes hooPulse {
+        0%, 100% { opacity: 0.7; }
+        50% { opacity: 1; }
     }
-    .hoo-tooltip.visible { opacity: 1; }
-
-    .hoo-legend { display: flex; flex-wrap: wrap; justify-content: center; margin-top: 12px; gap: 4px 14px; }
-    .hoo-legend-item { display: flex; align-items: center; gap: 5px; font-size: 0.72em; color: #666; }
-    .hoo-legend-dot { width: 11px; height: 11px; border-radius: 50%; }
-    .hoo-legend-rect { width: 14px; height: 10px; border-radius: 2px; }
-
-    .hoo-instructions { text-align: center; color: #999; font-size: 0.78em; margin-top: 10px; font-style: italic; }
-
-    .hoo-ego-view {
-        background: #1a1a1a; border-radius: 6px; padding: 6px;
-        margin-top: 8px; display: flex; flex-direction: column; align-items: center;
+    .hoo-hotspot:hover .hoo-pulse {
+        animation: none;
+        opacity: 1;
     }
-    .hoo-ego-label { font-size: 0.65em; color: #aaa; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; }
-
-    .hoo-room-label { font-size: 9px; fill: #666; font-weight: 600; }
-    .hoo-path { stroke-dasharray: 5,3; opacity: 0.6; }
-    .hoo-path-blocked { stroke: #e53935 !important; stroke-width: 3px; }
-    .hoo-goal-marker { stroke-dasharray: 4,2; fill: none; }
-
-    @media (max-width: 1100px) {
-        .hoo-layout { flex-direction: column; align-items: center; }
-        .hoo-arrow { transform: rotate(90deg); }
-        .hoo-env-panel, .hoo-belief-panel, .hoo-planner-panel { width: 100%; max-width: 500px; }
+    #hoo-info-panel {
+        transition: opacity 0.2s ease, transform 0.2s ease;
+    }
+    #hoo-info-panel.visible {
+        display: block !important;
+        opacity: 1;
+        transform: translateY(0);
     }
 
   </style>
@@ -380,297 +324,112 @@
   </div>
 </section>
 
-<!-- Interactive HOO-POMDP Visualization Section -->
+<!-- Interactive HOO-POMDP Scene Example -->
 <section class="section" style="background: #f9f9f9; padding-top: 2rem; padding-bottom: 2rem;">
   <div class="container">
-    <div class="hoo-interactive-container">
-      <div class="hoo-title">Interactive: How HOO-POMDP Plans Under Uncertainty</div>
-      <p class="hoo-subtitle">Multi-room rearrangement with partial observability. Hover over elements to explore the hierarchical planning system.</p>
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-3 has-text-centered">Interactive: Multi-Object Rearrangement Scenario</h3>
+        <p class="has-text-centered" style="color:#666; margin-bottom:1.5rem; font-size:0.95rem;">
+          Hover over objects and paths to explore spatial dependencies. In this scene, the robot must determine the optimal order to move objects to their goals.
+        </p>
 
-      <div class="hoo-layout">
-        <!-- LEFT: Environment Panel -->
-        <div class="hoo-env-panel">
-          <h4>Multi-Room Environment</h4>
-          <svg id="hoo-env-svg" width="310" height="250" viewBox="0 0 310 250">
-            <defs>
-              <pattern id="hoo-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect width="20" height="20" fill="none" stroke="#e8e8e8" stroke-width="0.5"/>
-              </pattern>
-            </defs>
+        <!-- Interactive Image Container -->
+        <div id="hoo-scene-container" style="position:relative; max-width:900px; margin:0 auto; user-select:none;">
+          <img src="./resources/hoo_pomdp_example.png" alt="HOO-POMDP Multi-room Rearrangement Example"
+               style="width:100%; display:block; border-radius:8px; box-shadow:0 4px 12px rgba(0,0,0,0.15);">
 
-            <!-- Room 1 (Living Room) -->
-            <g class="hoo-room" data-room="room1" data-tip="Living Room: Contains O1 (mug) and O2 (book). Robot starts here with egocentric view showing ~60% of room.">
-              <rect x="5" y="5" width="145" height="115" fill="#fff9c4" stroke="#bbb" stroke-width="1.5" rx="3"/>
-              <rect x="5" y="5" width="145" height="115" fill="url(#hoo-grid)" opacity="0.3"/>
-              <text x="75" y="22" class="hoo-room-label" text-anchor="middle">Living Room</text>
+          <!-- SVG Overlay for interactive hotspots -->
+          <svg id="hoo-scene-svg" viewBox="0 0 960 620"
+               style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;">
+
+            <!-- Object 1 hotspot (blue, dining area) -->
+            <g class="hoo-hotspot" data-obj="1" style="pointer-events:all; cursor:pointer;">
+              <circle cx="515" cy="70" r="22" fill="rgba(0,128,255,0.2)" stroke="#00aaff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Room 2 (Kitchen) -->
-            <g class="hoo-room" data-room="room2" data-tip="Kitchen: Contains O3 (plate) and O4 (bowl). Goal location for O2. Partially explored.">
-              <rect x="160" y="5" width="145" height="115" fill="#e1f5fe" stroke="#bbb" stroke-width="1.5" rx="3"/>
-              <rect x="160" y="5" width="145" height="115" fill="url(#hoo-grid)" opacity="0.3"/>
-              <text x="232" y="22" class="hoo-room-label" text-anchor="middle">Kitchen</text>
+            <!-- Object 2 hotspot (pink, right side bedroom) -->
+            <g class="hoo-hotspot" data-obj="2" style="pointer-events:all; cursor:pointer;">
+              <circle cx="885" cy="290" r="22" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Room 3 (Bedroom) -->
-            <g class="hoo-room" data-room="room3" data-tip="Bedroom: Contains O5 (lamp) but location uncertain. Robot needs to explore this room.">
-              <rect x="5" y="130" width="145" height="115" fill="#fce4ec" stroke="#bbb" stroke-width="1.5" rx="3"/>
-              <rect x="5" y="130" width="145" height="115" fill="url(#hoo-grid)" opacity="0.3"/>
-              <text x="75" y="147" class="hoo-room-label" text-anchor="middle">Bedroom</text>
+            <!-- Object 3 hotspot (yellow on couch, blocking) -->
+            <g class="hoo-hotspot" data-obj="3" style="pointer-events:all; cursor:pointer;">
+              <circle cx="570" cy="290" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Room 4 (Bathroom) -->
-            <g class="hoo-room" data-room="room4" data-tip="Bathroom: Goal location for O1 (mug). Currently empty. Robot must navigate here after picking O1.">
-              <rect x="160" y="130" width="145" height="115" fill="#e8f5e9" stroke="#bbb" stroke-width="1.5" rx="3"/>
-              <rect x="160" y="130" width="145" height="115" fill="url(#hoo-grid)" opacity="0.3"/>
-              <text x="232" y="147" class="hoo-room-label" text-anchor="middle">Bathroom</text>
+            <!-- Object 4 hotspot (cyan, kitchen table) -->
+            <g class="hoo-hotspot" data-obj="4" style="pointer-events:all; cursor:pointer;">
+              <circle cx="480" cy="95" r="22" fill="rgba(0,255,255,0.2)" stroke="#00ffff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Doorways -->
-            <rect x="65" y="117" width="30" height="16" fill="#fff" stroke="#999" stroke-width="1" rx="2"/>
-            <text x="80" y="128" font-size="6" fill="#666" text-anchor="middle">door</text>
-            <rect x="147" y="55" width="16" height="30" fill="#fff" stroke="#999" stroke-width="1" rx="2"/>
-            <rect x="215" y="117" width="30" height="16" fill="#fff" stroke="#999" stroke-width="1" rx="2"/>
-            <text x="230" y="128" font-size="6" fill="#666" text-anchor="middle">door</text>
-
-            <!-- Blocked path -->
-            <line class="hoo-path hoo-path-blocked" x1="80" y1="123" x2="80" y2="140" stroke="#e53935" stroke-width="2"/>
-            <text x="95" y="132" font-size="6" fill="#e53935" font-weight="600">BLOCKED</text>
-
-            <!-- Object O1 (Mug) -->
-            <g class="hoo-object" data-obj="O1" data-tip="O1 (Mug): High belief (92%) at Living Room. Goal: Bathroom. Ready to pick once O2 is moved.">
-              <circle cx="45" cy="65" r="14" fill="#64b5f6" stroke="#1565c0" stroke-width="2"/>
-              <text x="45" y="69" text-anchor="middle" font-size="9" fill="white" font-weight="700">O1</text>
-              <text x="45" y="58" text-anchor="middle" font-size="6" fill="#1565c0">mug</text>
-            </g>
-            <rect class="hoo-goal-marker" x="190" y="170" width="24" height="24" stroke="#1565c0" stroke-width="2" rx="3"/>
-            <text x="202" y="200" font-size="6" fill="#1565c0" text-anchor="middle">O1 goal</text>
-
-            <!-- Object O2 (Book) - BLOCKING -->
-            <g class="hoo-object" data-obj="O2" data-tip="O2 (Book): BLOCKING doorway! Belief 88%. Must move to Kitchen before O1 can reach Bathroom.">
-              <rect x="63" y="95" width="24" height="18" rx="3" fill="#ff7043" stroke="#e64a19" stroke-width="2"/>
-              <text x="75" y="107" text-anchor="middle" font-size="8" fill="white" font-weight="700">O2</text>
-              <text x="75" y="88" text-anchor="middle" font-size="6" fill="#e64a19">book</text>
-            </g>
-            <rect class="hoo-goal-marker" x="238" y="43" width="24" height="18" stroke="#e64a19" stroke-width="2" rx="3"/>
-            <text x="250" y="72" font-size="6" fill="#e64a19" text-anchor="middle">O2 goal</text>
-
-            <!-- Object O3 (Plate) - uncertain -->
-            <g class="hoo-object" data-obj="O3" data-tip="O3 (Plate): Location uncertain. 65% belief at (200,75), 25% at alternate location. Needs verification.">
-              <circle cx="200" cy="75" r="13" fill="#ab47bc" stroke="#7b1fa2" stroke-width="2" opacity="0.7"/>
-              <text x="200" y="79" text-anchor="middle" font-size="8" fill="white" font-weight="700">O3</text>
-              <circle cx="270" cy="50" r="8" fill="#ab47bc" stroke="#7b1fa2" stroke-width="1" opacity="0.3"/>
-              <text x="270" y="53" text-anchor="middle" font-size="6" fill="#7b1fa2">?</text>
+            <!-- Object 5 hotspot (yellow, bedroom left) -->
+            <g class="hoo-hotspot" data-obj="5" style="pointer-events:all; cursor:pointer;">
+              <circle cx="82" cy="175" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object O4 (Bowl) -->
-            <g class="hoo-object" data-obj="O4" data-tip="O4 (Bowl): At Kitchen (180,50). Belief 78%. Goal: Living Room. Potential swap scenario with incoming objects.">
-              <ellipse cx="180" cy="50" rx="12" ry="8" fill="#26a69a" stroke="#00796b" stroke-width="2"/>
-              <text x="180" y="53" text-anchor="middle" font-size="7" fill="white" font-weight="700">O4</text>
-            </g>
-            <ellipse class="hoo-goal-marker" cx="120" cy="75" rx="12" ry="8" stroke="#00796b" stroke-width="2"/>
-
-            <!-- Object O5 (Lamp) - very uncertain -->
-            <g class="hoo-object" data-obj="O5" data-tip="O5 (Lamp): HIGH UNCERTAINTY! Belief spread: 35% LocA, 40% LocB, 25% elsewhere. Robot must explore Bedroom.">
-              <polygon points="50,175 60,195 40,195" fill="#9e9e9e" stroke="#616161" stroke-width="1.5" opacity="0.5"/>
-              <text x="50" y="188" text-anchor="middle" font-size="6" fill="#616161">O5?</text>
-              <polygon points="100,195 110,215 90,215" fill="#9e9e9e" stroke="#616161" stroke-width="1" opacity="0.3"/>
-              <text x="100" y="208" text-anchor="middle" font-size="5" fill="#999">?</text>
+            <!-- Object 6 hotspot (yellow, bedroom near door) -->
+            <g class="hoo-hotspot" data-obj="6" style="pointer-events:all; cursor:pointer;">
+              <circle cx="52" cy="65" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Robot -->
-            <g class="hoo-robot" data-obj="robot" data-tip="Robot: Position (110,55) in Living Room. Facing East. Currently sees O1 and O2. Planning PickPlace(O2) to unblock path.">
-              <circle cx="110" cy="55" r="12" fill="#42a5f5" stroke="#1565c0" stroke-width="2.5"/>
-              <text x="110" y="59" text-anchor="middle" font-size="9" font-weight="700" fill="white">R</text>
-              <polygon points="122,55 128,50 128,60" fill="#1565c0"/>
-              <path d="M122,55 L145,35 L145,75 Z" fill="#42a5f5" opacity="0.15"/>
+            <!-- Path highlights (initially hidden) -->
+            <g id="path-highlights" style="opacity:0; transition: opacity 0.3s;">
+              <!-- These will be shown/highlighted on hover -->
             </g>
-
-            <!-- Planned path -->
-            <path class="hoo-path" d="M110,55 L75,55 L75,95" stroke="#5b6abf" stroke-width="1.5" fill="none"/>
-            <text x="92" y="78" font-size="5.5" fill="#5b6abf">planned</text>
           </svg>
 
-          <div class="hoo-ego-view">
-            <span class="hoo-ego-label">Egocentric View (RGB)</span>
-            <svg width="140" height="70" viewBox="0 0 140 70">
-              <rect x="0" y="0" width="140" height="70" fill="#3a3a3a" rx="3"/>
-              <rect x="10" y="30" width="35" height="30" fill="#795548" opacity="0.6" rx="2"/>
-              <circle cx="35" cy="40" r="8" fill="#64b5f6" stroke="#1565c0" stroke-width="1"/>
-              <text x="35" y="43" text-anchor="middle" font-size="6" fill="white">O1</text>
-              <rect x="70" y="25" width="20" height="15" fill="#ff7043" rx="2"/>
-              <text x="80" y="35" text-anchor="middle" font-size="5" fill="white">O2</text>
-              <rect x="100" y="15" width="30" height="55" fill="#666" rx="2"/>
-              <text x="70" y="65" font-size="6" fill="#888" text-anchor="middle">Detected: O1 ✓, O2 ✓</text>
-            </svg>
+          <!-- Info Panel (appears on hover) -->
+          <div id="hoo-info-panel" style="
+            position:absolute; bottom:20px; left:20px; right:20px;
+            background:rgba(255,255,255,0.95); border-radius:10px; padding:16px 20px;
+            box-shadow:0 4px 20px rgba(0,0,0,0.2); display:none;
+            font-size:0.9rem; line-height:1.5; border-left:5px solid #3273dc;
+          ">
+            <div id="hoo-info-content"></div>
           </div>
         </div>
 
-        <div class="hoo-arrow">&#8594;</div>
+        <!-- Legend & Planning Sequence -->
+        <div style="display:flex; flex-wrap:wrap; gap:20px; margin-top:20px; justify-content:center; align-items:flex-start;">
 
-        <!-- MIDDLE: Belief Panel -->
-        <div class="hoo-belief-panel">
-          <h4>Object-Oriented Belief</h4>
-
-          <div class="hoo-belief-section" data-belief-obj="O1">
-            <div class="hoo-belief-title">O1 (Mug)</div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:92%; background:#4caf50;"></div></div>
-              <span class="hoo-belief-bar-val">0.92</span>
-            </div>
-            <div style="font-size:0.65em; color:#666; margin-left:60px;">Living (35,65)</div>
-          </div>
-
-          <div class="hoo-belief-section" data-belief-obj="O2">
-            <div class="hoo-belief-title">O2 (Book) <span style="color:#e53935;">⚠ blocking</span></div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:88%; background:#81c784;"></div></div>
-              <span class="hoo-belief-bar-val">0.88</span>
-            </div>
-            <div style="font-size:0.65em; color:#666; margin-left:60px;">Living (75,105)</div>
-          </div>
-
-          <div class="hoo-belief-section" data-belief-obj="O3">
-            <div class="hoo-belief-title">O3 (Plate) <span style="color:#ff9800;">uncertain</span></div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc A</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:65%; background:#ce93d8;"></div></div>
-              <span class="hoo-belief-bar-val">0.65</span>
-            </div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc B</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:25%; background:#e1bee7;"></div></div>
-              <span class="hoo-belief-bar-val">0.25</span>
+          <!-- Color Legend -->
+          <div style="background:white; padding:15px 20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+            <div style="font-weight:600; margin-bottom:10px; color:#333; font-size:0.85rem;">Path Colors</div>
+            <div style="display:grid; grid-template-columns:auto auto; gap:6px 15px; font-size:0.8rem;">
+              <span><span style="display:inline-block; width:20px; height:4px; background:#00ff00; vertical-align:middle; margin-right:5px; border-radius:2px;"></span>Object 1 & 2</span>
+              <span><span style="display:inline-block; width:20px; height:4px; background:#00ffff; vertical-align:middle; margin-right:5px; border-radius:2px;"></span>Object 4</span>
+              <span><span style="display:inline-block; width:20px; height:4px; background:#ff00ff; vertical-align:middle; margin-right:5px; border-radius:2px;"></span>Object 6</span>
+              <span><span style="display:inline-block; width:20px; height:4px; background:#ffff00; vertical-align:middle; margin-right:5px; border-radius:2px;"></span>Shared corridor</span>
+              <span><span style="display:inline-block; width:20px; height:4px; background:#ff0000; vertical-align:middle; margin-right:5px; border-radius:2px;"></span>Object 3 (blocked)</span>
+              <span style="color:#666;"><span style="display:inline-block; width:12px; height:12px; border:2px dashed #666; vertical-align:middle; margin-right:5px;"></span>Goal location</span>
             </div>
           </div>
 
-          <div class="hoo-belief-section" data-belief-obj="O4">
-            <div class="hoo-belief-title">O4 (Bowl)</div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:78%; background:#80cbc4;"></div></div>
-              <span class="hoo-belief-bar-val">0.78</span>
+          <!-- Optimal Planning Sequence -->
+          <div style="background:linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding:15px 20px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.08); flex:1; min-width:280px;">
+            <div style="font-weight:600; margin-bottom:10px; color:#2e7d32; font-size:0.85rem;">HOO-POMDP Computed Optimal Sequence</div>
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap; font-size:0.82rem;">
+              <span style="background:#ffeb3b; color:#333; padding:5px 12px; border-radius:15px; font-weight:600;">1. Move Obj 3</span>
+              <span style="color:#888;">→</span>
+              <span style="background:#ab47bc; color:white; padding:5px 12px; border-radius:15px; font-weight:600;">2. Move Obj 2</span>
+              <span style="color:#888;">→</span>
+              <span style="background:#42a5f5; color:white; padding:5px 12px; border-radius:15px; font-weight:600;">3. Move Obj 1</span>
+              <span style="color:#888;">→</span>
+              <span style="background:#78909c; color:white; padding:5px 12px; border-radius:15px; font-weight:600;">4. Others...</span>
             </div>
-          </div>
-
-          <div class="hoo-belief-section" data-belief-obj="O5">
-            <div class="hoo-belief-title">O5 (Lamp) <span style="color:#e53935;">needs search</span></div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc A</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:35%; background:#bdbdbd;"></div></div>
-              <span class="hoo-belief-bar-val">0.35</span>
-            </div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc B</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:40%; background:#bdbdbd;"></div></div>
-              <span class="hoo-belief-bar-val">0.40</span>
-            </div>
-          </div>
-
-          <div class="hoo-belief-section" data-belief-obj="robot">
-            <div class="hoo-belief-title">Robot Position</div>
-            <div class="hoo-belief-bar">
-              <span class="hoo-belief-bar-label">Loc</span>
-              <div class="hoo-belief-bar-track"><div class="hoo-belief-bar-fill" style="width:100%; background:#42a5f5;"></div></div>
-              <span class="hoo-belief-bar-val">1.00</span>
+            <div style="margin-top:8px; font-size:0.75rem; color:#555;">
+              Object 3 blocks Object 1's goal. Object 2 blocks the corridor. Moving them first enables efficient completion.
             </div>
           </div>
         </div>
 
-        <div class="hoo-arrow">&#8594;</div>
-
-        <!-- RIGHT: Planner Panel -->
-        <div class="hoo-planner-panel">
-          <h4>Hierarchical Planning Pipeline</h4>
-
-          <div class="hoo-flow-container">
-            <div class="hoo-flow-stage" data-stage="perception" data-tip="Perception: YOLOv10 detector processes RGB+Depth images. Outputs observations z for each object in the field of view.">
-              <h5>1. Perception System</h5>
-              <div class="hoo-flow-content">
-                <div style="font-size:0.8em; color:#555;">
-                  <strong>Input:</strong> RGB + Depth<br>
-                  <span style="color:#4caf50;">✓ O1, O2 detected</span>
-                  <span style="color:#ff9800;">○ O3-O5 not in view</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hoo-flow-arrow">↓</div>
-
-            <div class="hoo-flow-stage" data-stage="belief" data-tip="Belief Update: Updates probability distribution over object locations using observation model P(z|s). Factored independently per object for scalability.">
-              <h5>2. Belief Update (Object-Factored)</h5>
-              <div class="hoo-flow-content">
-                <div style="font-size:0.8em; color:#555;">
-                  b'(s') = η · P(z|s') · Σ T(s,a,s') · b(s)<br>
-                  <span style="font-size:0.85em; color:#666;">Independent update: b = Π b<sub>i</sub></span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hoo-flow-arrow">↓</div>
-
-            <div class="hoo-flow-stage active" data-stage="abstraction" data-tip="Abstraction: Converts belief to discrete state. Samples pick/place locations. Key insight: abstracts continuous belief into tractable representation.">
-              <h5>3. State Abstraction</h5>
-              <div class="hoo-flow-content">
-                <div style="font-size:0.8em; background:#f0fff0; padding:6px; border-radius:4px;">
-                  <strong>Abstract State:</strong> s<sub>i</sub> = (loc, pick, place_locs, is_held, at_goal)<br>
-                  <strong>O2:</strong> pick=(75,105), place=[(250,55)]
-                </div>
-              </div>
-            </div>
-
-            <div class="hoo-flow-arrow">↓</div>
-
-            <div class="hoo-flow-stage active" data-stage="planner" data-tip="OO-POMDP Planner: PO-UCT searches over abstract actions (Move, Rotate, PickPlace). Outputs sub-goal maximizing expected reward. Depth=12 for lookahead.">
-              <h5>4. OO-POMDP Planner (PO-UCT)</h5>
-              <div class="hoo-flow-content">
-                <div style="margin-bottom:6px;">
-                  <span class="hoo-subgoal hoo-subgoal-move">Move<sub>AB</sub></span>
-                  <span class="hoo-subgoal hoo-subgoal-rotate">Rotate<sub>θ</sub></span>
-                  <span class="hoo-subgoal hoo-subgoal-pickplace">PickPlace</span>
-                </div>
-                <div style="background:#fff3e0; padding:6px; border-radius:4px; border-left:3px solid #ff9800;">
-                  <strong>Selected:</strong>
-                  <span class="hoo-subgoal hoo-subgoal-pickplace">PickPlace(O2, Kitchen)</span><br>
-                  <span style="font-size:0.75em; color:#666;">Reason: O2 blocks path. Move it first.</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="hoo-flow-arrow">↓</div>
-
-            <div class="hoo-flow-stage pending" data-stage="lowlevel" data-tip="Low-Level Policy: Executes sub-goal using A* navigation and RL Pick/Place policies trained with PPO. Outputs primitive actions for simulator.">
-              <h5>5. Low-Level Policy Executor</h5>
-              <div class="hoo-flow-content">
-                <div style="font-size:0.8em;">
-                  <strong>PickPlace(O2, Kitchen):</strong><br>
-                  1. <span style="color:#5b6abf;">Navigate</span> to O2 [A*]<br>
-                  2. <span style="color:#2e7d32;">Pick</span> O2 [RL]<br>
-                  3. <span style="color:#5b6abf;">Navigate</span> to Kitchen [A*]<br>
-                  4. <span style="color:#2e7d32;">Place</span> O2 [RL]
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <p style="text-align:center; color:#888; font-size:0.8rem; margin-top:15px; font-style:italic;">
+          Hover over numbered objects to see their dependencies and blocking relationships.
+        </p>
       </div>
-
-      <div class="hoo-legend">
-        <div class="hoo-legend-item"><div class="hoo-legend-dot" style="background:#42a5f5;"></div>Robot</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-dot" style="background:#64b5f6;"></div>Object (high belief)</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-dot" style="background:#9e9e9e;"></div>Object (uncertain)</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-rect" style="background:#ff7043;"></div>Blocking object</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-rect" style="border:2px dashed #1565c0; background:none;"></div>Goal location</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-rect" style="background:#fff9c4; border:1px solid #bbb;"></div>Explored room</div>
-        <div class="hoo-legend-item"><div class="hoo-legend-rect" style="background:#fce4ec; border:1px solid #bbb;"></div>Unexplored room</div>
-      </div>
-
-      <p class="hoo-instructions">Hover over rooms, objects, belief bars, or planning stages to see connections. The planner reasons about blocked paths and uncertainty to select optimal sub-goals.</p>
     </div>
   </div>
-  <div class="hoo-tooltip" id="hoo-tooltip"></div>
 </section>
 
 <section class="section">
@@ -913,6 +672,156 @@
                 </div>
                 <div class="dropdown-content">
                     <p>Despite imperfect perception, HOOP solves many problems. The small performance gap between HOOP and the Perfect Detector (PD) oracle shows that our POMDP planner effectively handles partial observability and detector failures.</p>
+                </div>
+            </div>
+
+            <!-- Visual Result Graphs -->
+            <div style="margin: 30px 0;">
+                <h3 class="title is-4" style="text-align:center; margin-bottom:20px;">Performance Comparison Graphs</h3>
+
+                <div style="display:flex; flex-wrap:wrap; gap:25px; justify-content:center;">
+
+                    <!-- Scene Success Rate Chart -->
+                    <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); min-width:300px; flex:1; max-width:450px;">
+                        <div style="font-weight:600; text-align:center; margin-bottom:15px; color:#333;">Scene Success Rate (%) - RoomR Dataset</div>
+                        <svg viewBox="0 0 320 200" style="width:100%; height:auto;">
+                            <!-- Grid lines -->
+                            <line x1="60" y1="30" x2="60" y2="170" stroke="#e0e0e0" stroke-width="1"/>
+                            <line x1="60" y1="170" x2="310" y2="170" stroke="#333" stroke-width="1.5"/>
+                            <line x1="60" y1="100" x2="310" y2="100" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="60" y1="65" x2="310" y2="65" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+
+                            <!-- Y-axis labels -->
+                            <text x="55" y="175" font-size="10" text-anchor="end" fill="#666">0</text>
+                            <text x="55" y="105" font-size="10" text-anchor="end" fill="#666">25</text>
+                            <text x="55" y="70" font-size="10" text-anchor="end" fill="#666">50</text>
+                            <text x="55" y="35" font-size="10" text-anchor="end" fill="#666">75</text>
+
+                            <!-- Bars -->
+                            <rect x="75" y="32" width="35" height="138" fill="#4caf50" rx="3"/>
+                            <text x="92" y="26" font-size="9" text-anchor="middle" fill="#333" font-weight="600">49%</text>
+                            <text x="92" y="185" font-size="8" text-anchor="middle" fill="#333">HOOP</text>
+
+                            <rect x="120" y="142" width="35" height="28" fill="#ff7043" rx="3"/>
+                            <text x="137" y="137" font-size="9" text-anchor="middle" fill="#333">10%</text>
+                            <text x="137" y="185" font-size="8" text-anchor="middle" fill="#333">FHC</text>
+
+                            <rect x="165" y="170" width="35" height="0" fill="#9e9e9e" rx="3"/>
+                            <text x="182" y="165" font-size="9" text-anchor="middle" fill="#333">0%</text>
+                            <text x="182" y="185" font-size="8" text-anchor="middle" fill="#333">VRR</text>
+
+                            <rect x="210" y="149" width="35" height="21" fill="#78909c" rx="3"/>
+                            <text x="227" y="144" font-size="9" text-anchor="middle" fill="#333">8%</text>
+                            <text x="227" y="185" font-size="8" text-anchor="middle" fill="#333">MSS</text>
+
+                            <rect x="255" y="37" width="35" height="133" fill="#42a5f5" rx="3" opacity="0.6"/>
+                            <text x="272" y="31" font-size="9" text-anchor="middle" fill="#333">48%</text>
+                            <text x="272" y="185" font-size="8" text-anchor="middle" fill="#333">Oracle</text>
+                        </svg>
+                        <div style="font-size:0.75rem; text-align:center; color:#888; margin-top:5px;">Higher is better. Oracle = Perfect Detector</div>
+                    </div>
+
+                    <!-- Object Success Rate Chart -->
+                    <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); min-width:300px; flex:1; max-width:450px;">
+                        <div style="font-weight:600; text-align:center; margin-bottom:15px; color:#333;">Object Success Rate (%) - MultiRoomR Dataset</div>
+                        <svg viewBox="0 0 320 200" style="width:100%; height:auto;">
+                            <!-- Grid lines -->
+                            <line x1="60" y1="30" x2="60" y2="170" stroke="#e0e0e0" stroke-width="1"/>
+                            <line x1="60" y1="170" x2="310" y2="170" stroke="#333" stroke-width="1.5"/>
+                            <line x1="60" y1="100" x2="310" y2="100" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+                            <line x1="60" y1="65" x2="310" y2="65" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+
+                            <!-- Y-axis labels -->
+                            <text x="55" y="175" font-size="10" text-anchor="end" fill="#666">0</text>
+                            <text x="55" y="105" font-size="10" text-anchor="end" fill="#666">25</text>
+                            <text x="55" y="70" font-size="10" text-anchor="end" fill="#666">50</text>
+                            <text x="55" y="35" font-size="10" text-anchor="end" fill="#666">75</text>
+
+                            <!-- Bars (10 obj dataset) -->
+                            <rect x="75" y="52" width="35" height="118" fill="#4caf50" rx="3"/>
+                            <text x="92" y="46" font-size="9" text-anchor="middle" fill="#333" font-weight="600">65%</text>
+                            <text x="92" y="185" font-size="8" text-anchor="middle" fill="#333">HOOP</text>
+
+                            <rect x="120" y="138" width="35" height="32" fill="#ff7043" rx="3"/>
+                            <text x="137" y="133" font-size="9" text-anchor="middle" fill="#333">18%</text>
+                            <text x="137" y="185" font-size="8" text-anchor="middle" fill="#333">FHC</text>
+
+                            <rect x="165" y="156" width="35" height="14" fill="#9e9e9e" rx="3"/>
+                            <text x="182" y="151" font-size="9" text-anchor="middle" fill="#333">6%</text>
+                            <text x="182" y="185" font-size="8" text-anchor="middle" fill="#333">VRR</text>
+
+                            <rect x="210" y="153" width="35" height="17" fill="#78909c" rx="3"/>
+                            <text x="227" y="148" font-size="9" text-anchor="middle" fill="#333">9%</text>
+                            <text x="227" y="185" font-size="8" text-anchor="middle" fill="#333">MSS</text>
+
+                            <rect x="255" y="40" width="35" height="130" fill="#42a5f5" rx="3" opacity="0.6"/>
+                            <text x="272" y="34" font-size="9" text-anchor="middle" fill="#333">75%</text>
+                            <text x="272" y="185" font-size="8" text-anchor="middle" fill="#333">Oracle</text>
+                        </svg>
+                        <div style="font-size:0.75rem; text-align:center; color:#888; margin-top:5px;">10-object scenes with blocked paths. Higher is better.</div>
+                    </div>
+                </div>
+
+                <!-- Scaling comparison chart -->
+                <div style="background:white; padding:20px; border-radius:10px; box-shadow:0 2px 10px rgba(0,0,0,0.08); margin-top:25px; max-width:700px; margin-left:auto; margin-right:auto;">
+                    <div style="font-weight:600; text-align:center; margin-bottom:15px; color:#333;">HOO-POMDP Scaling: Performance vs. Problem Complexity</div>
+                    <svg viewBox="0 0 500 180" style="width:100%; height:auto;">
+                        <!-- Grid -->
+                        <line x1="80" y1="30" x2="80" y2="150" stroke="#e0e0e0" stroke-width="1"/>
+                        <line x1="80" y1="150" x2="480" y2="150" stroke="#333" stroke-width="1.5"/>
+                        <line x1="80" y1="90" x2="480" y2="90" stroke="#e0e0e0" stroke-width="1" stroke-dasharray="4,4"/>
+
+                        <!-- Y-axis -->
+                        <text x="75" y="155" font-size="10" text-anchor="end" fill="#666">0%</text>
+                        <text x="75" y="95" font-size="10" text-anchor="end" fill="#666">50%</text>
+                        <text x="75" y="35" font-size="10" text-anchor="end" fill="#666">100%</text>
+                        <text x="40" y="95" font-size="10" text-anchor="middle" fill="#666" transform="rotate(-90, 40, 95)">Success Rate</text>
+
+                        <!-- X-axis labels -->
+                        <text x="130" y="165" font-size="9" text-anchor="middle" fill="#333">RoomR (5 obj)</text>
+                        <text x="230" y="165" font-size="9" text-anchor="middle" fill="#333">Proc (5 obj)</text>
+                        <text x="330" y="165" font-size="9" text-anchor="middle" fill="#333">MultiR (10 obj)</text>
+                        <text x="430" y="165" font-size="9" text-anchor="middle" fill="#333">MultiR (15-20)</text>
+
+                        <!-- HOOP line (Scene Success) -->
+                        <polyline points="130,91 230,96 330,111 430,125" fill="none" stroke="#4caf50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                        <circle cx="130" cy="91" r="5" fill="#4caf50"/>
+                        <circle cx="230" cy="96" r="5" fill="#4caf50"/>
+                        <circle cx="330" cy="111" r="5" fill="#4caf50"/>
+                        <circle cx="430" cy="125" r="5" fill="#4caf50"/>
+
+                        <!-- HOOP values -->
+                        <text x="130" y="84" font-size="8" text-anchor="middle" fill="#2e7d32" font-weight="600">49%</text>
+                        <text x="230" y="89" font-size="8" text-anchor="middle" fill="#2e7d32" font-weight="600">46%</text>
+                        <text x="330" y="104" font-size="8" text-anchor="middle" fill="#2e7d32" font-weight="600">32%</text>
+                        <text x="430" y="118" font-size="8" text-anchor="middle" fill="#2e7d32" font-weight="600">21%</text>
+
+                        <!-- Oracle line for reference -->
+                        <polyline points="130,92 230,103 330,105 430,118" fill="none" stroke="#42a5f5" stroke-width="2" stroke-dasharray="6,3" opacity="0.7"/>
+                        <circle cx="130" cy="92" r="4" fill="#42a5f5" opacity="0.7"/>
+                        <circle cx="230" cy="103" r="4" fill="#42a5f5" opacity="0.7"/>
+                        <circle cx="330" cy="105" r="4" fill="#42a5f5" opacity="0.7"/>
+                        <circle cx="430" cy="118" r="4" fill="#42a5f5" opacity="0.7"/>
+
+                        <!-- Legend -->
+                        <rect x="350" y="30" width="120" height="40" fill="white" stroke="#e0e0e0" rx="4"/>
+                        <line x1="360" y1="42" x2="380" y2="42" stroke="#4caf50" stroke-width="3"/>
+                        <text x="385" y="46" font-size="9" fill="#333">HOO-POMDP</text>
+                        <line x1="360" y1="58" x2="380" y2="58" stroke="#42a5f5" stroke-width="2" stroke-dasharray="4,2"/>
+                        <text x="385" y="62" font-size="9" fill="#333">Oracle (PD)</text>
+                    </svg>
+                    <div style="font-size:0.75rem; text-align:center; color:#888; margin-top:5px;">Scene Success Rate as problem complexity increases. HOOP maintains strong performance close to Oracle even with more objects.</div>
+                </div>
+
+                <!-- Key Insight Box -->
+                <div style="background:linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%); padding:20px; border-radius:10px; margin-top:20px; border-left:5px solid #4caf50;">
+                    <div style="display:flex; align-items:flex-start; gap:15px;">
+                        <div style="font-size:2em;">📊</div>
+                        <div>
+                            <div style="font-weight:600; color:#2e7d32; margin-bottom:5px;">Key Finding</div>
+                            <div style="font-size:0.9rem; color:#333;">HOO-POMDP achieves <strong>50-70% object success</strong> even with only <strong>60% detector reliability</strong>. Baselines (VRR, FHC, MSS) struggle significantly, often achieving <strong>0-10%</strong> scene success on complex multi-room scenarios. The small gap between HOO-POMDP and the Oracle demonstrates effective handling of uncertainty.</div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -1293,147 +1202,94 @@ $(document).ready(function() {
         }
     });
 
-    // === HOO-POMDP Interactive Visualization ===
+    // === HOO-POMDP Interactive Scene Overlay ===
     (function() {
-        var tooltip = document.getElementById('hoo-tooltip');
-        if (!tooltip) return;
+        var infoPanel = document.getElementById('hoo-info-panel');
+        var infoContent = document.getElementById('hoo-info-content');
+        if (!infoPanel || !infoContent) return;
 
-        var allObjects = document.querySelectorAll('.hoo-object, .hoo-robot');
-        var allRooms = document.querySelectorAll('.hoo-room');
-        var allBeliefSections = document.querySelectorAll('.hoo-belief-section');
-        var allStages = document.querySelectorAll('.hoo-flow-stage');
-
-        var objectMap = {
-            'O1': { rooms: ['room1'], stages: ['perception', 'belief', 'abstraction', 'planner'], beliefs: ['O1'] },
-            'O2': { rooms: ['room1'], stages: ['perception', 'belief', 'abstraction', 'planner', 'lowlevel'], beliefs: ['O2'] },
-            'O3': { rooms: ['room2'], stages: ['belief', 'abstraction'], beliefs: ['O3'] },
-            'O4': { rooms: ['room2'], stages: ['belief', 'abstraction'], beliefs: ['O4'] },
-            'O5': { rooms: ['room3'], stages: ['belief'], beliefs: ['O5'] },
-            'robot': { rooms: ['room1'], stages: ['perception', 'belief', 'planner', 'lowlevel'], beliefs: ['robot'] }
+        var objectInfo = {
+            '1': {
+                title: 'Object 1 (Blue mug)',
+                path: 'Green path',
+                status: '<span style="color:#d32f2f; font-weight:600;">BLOCKED</span>',
+                blockedBy: 'Object 3 is blocking Object 1\'s goal location (red dashed square on the couch)',
+                solution: 'Object 3 must be moved first before Object 1 can be placed at its goal',
+                order: '3rd in optimal sequence'
+            },
+            '2': {
+                title: 'Object 2 (Pink marker)',
+                path: 'Green path',
+                status: '<span style="color:#ff9800; font-weight:600;">PATH CONGESTED</span>',
+                blockedBy: 'Shares corridor with other objects. The yellow dotted path through the hallway is congested.',
+                solution: 'Should be moved after Object 3 clears the area',
+                order: '2nd in optimal sequence'
+            },
+            '3': {
+                title: 'Object 3 (Yellow, on couch)',
+                path: 'Red path (currently blocked)',
+                status: '<span style="color:#d32f2f; font-weight:600;">CRITICAL BLOCKER</span>',
+                blockedBy: 'This object is sitting at Object 1\'s goal location!',
+                solution: '<strong>Must be moved FIRST</strong> to free up the goal for Object 1',
+                order: '<span style="background:#ffeb3b; padding:2px 8px; border-radius:3px; font-weight:700;">1st - PRIORITY</span>'
+            },
+            '4': {
+                title: 'Object 4 (Cyan, kitchen)',
+                path: 'Cyan path',
+                status: '<span style="color:#4caf50; font-weight:600;">REACHABLE</span>',
+                blockedBy: 'No blocking dependencies. Path to goal is clear.',
+                solution: 'Can be moved independently after priority objects',
+                order: 'Flexible (after 1-3)'
+            },
+            '5': {
+                title: 'Object 5 (Yellow, bedroom)',
+                path: 'Yellow/Pink path',
+                status: '<span style="color:#4caf50; font-weight:600;">REACHABLE</span>',
+                blockedBy: 'No blocking dependencies.',
+                solution: 'Can be moved after corridor clears',
+                order: 'Flexible (after 1-3)'
+            },
+            '6': {
+                title: 'Object 6 (Magenta path)',
+                path: 'Magenta path',
+                status: '<span style="color:#4caf50; font-weight:600;">REACHABLE</span>',
+                blockedBy: 'No blocking dependencies. Located near bedroom door.',
+                solution: 'Can be moved when corridor is available',
+                order: 'Flexible (after 1-3)'
+            }
         };
 
-        var roomMap = {
-            'room1': { objects: ['O1', 'O2', 'robot'], stages: ['perception'], beliefs: ['O1', 'O2', 'robot'] },
-            'room2': { objects: ['O3', 'O4'], stages: ['abstraction'], beliefs: ['O3', 'O4'] },
-            'room3': { objects: ['O5'], stages: ['belief'], beliefs: ['O5'] },
-            'room4': { objects: [], stages: ['planner'], beliefs: [] }
-        };
+        var hotspots = document.querySelectorAll('.hoo-hotspot');
 
-        var stageMap = {
-            'perception': { objects: ['O1', 'O2', 'robot'], rooms: ['room1'], beliefs: ['O1', 'O2', 'robot'] },
-            'belief': { objects: ['O1', 'O2', 'O3', 'O4', 'O5', 'robot'], rooms: ['room1', 'room2', 'room3'], beliefs: ['O1', 'O2', 'O3', 'O4', 'O5', 'robot'] },
-            'abstraction': { objects: ['O1', 'O2', 'O3', 'O4'], rooms: ['room1', 'room2'], beliefs: ['O1', 'O2', 'O3', 'O4'] },
-            'planner': { objects: ['O2', 'robot'], rooms: ['room1', 'room2', 'room4'], beliefs: ['O2'] },
-            'lowlevel': { objects: ['O2', 'robot'], rooms: ['room1', 'room2'], beliefs: ['O2'] }
-        };
+        hotspots.forEach(function(hotspot) {
+            var objId = hotspot.dataset.obj;
+            var info = objectInfo[objId];
 
-        function showTip(e, t) {
-            tooltip.textContent = t;
-            tooltip.classList.add('visible');
-            tooltip.style.left = (e.clientX + 14) + 'px';
-            tooltip.style.top = (e.clientY - 10) + 'px';
-        }
-        function moveTip(e) {
-            tooltip.style.left = (e.clientX + 14) + 'px';
-            tooltip.style.top = (e.clientY - 10) + 'px';
-        }
-        function hideTip() { tooltip.classList.remove('visible'); }
-
-        function dimAll() {
-            allObjects.forEach(function(o) { o.classList.add('hoo-dimmed'); });
-            allRooms.forEach(function(r) { r.classList.add('hoo-dimmed'); });
-            allBeliefSections.forEach(function(b) { b.classList.add('hoo-dimmed'); });
-            allStages.forEach(function(s) { s.classList.add('hoo-dimmed'); });
-        }
-
-        function clearAll() {
-            allObjects.forEach(function(o) { o.classList.remove('hoo-dimmed', 'hoo-highlighted'); });
-            allRooms.forEach(function(r) { r.classList.remove('hoo-dimmed'); var rect = r.querySelector('rect'); if (rect) rect.style.strokeWidth = ''; });
-            allBeliefSections.forEach(function(b) { b.classList.remove('hoo-dimmed'); b.style.background = ''; });
-            allStages.forEach(function(s) { s.classList.remove('hoo-dimmed'); s.style.boxShadow = ''; });
-        }
-
-        function highlightObjects(ids) {
-            ids.forEach(function(id) {
-                document.querySelectorAll('.hoo-object[data-obj="'+id+'"], .hoo-robot[data-obj="'+id+'"]').forEach(function(o) {
-                    o.classList.remove('hoo-dimmed');
-                    o.classList.add('hoo-highlighted');
-                });
+            hotspot.addEventListener('mouseenter', function() {
+                if (info) {
+                    infoContent.innerHTML =
+                        '<div style="display:flex; align-items:flex-start; gap:15px;">' +
+                        '<div style="flex:1;">' +
+                        '<strong style="font-size:1.1em; color:#333;">' + info.title + '</strong>' +
+                        '<span style="margin-left:10px; font-size:0.85em; color:#666;">(' + info.path + ')</span>' +
+                        '<div style="margin-top:8px;">' +
+                        '<div><strong>Status:</strong> ' + info.status + '</div>' +
+                        '<div style="margin-top:4px;"><strong>Dependency:</strong> ' + info.blockedBy + '</div>' +
+                        '<div style="margin-top:4px;"><strong>Solution:</strong> ' + info.solution + '</div>' +
+                        '</div>' +
+                        '</div>' +
+                        '<div style="text-align:right; min-width:120px;">' +
+                        '<div style="font-size:0.75em; color:#888; text-transform:uppercase;">Planning Order</div>' +
+                        '<div style="font-size:0.95em; margin-top:4px;">' + info.order + '</div>' +
+                        '</div>' +
+                        '</div>';
+                    infoPanel.style.display = 'block';
+                }
             });
-        }
 
-        function highlightRooms(ids) {
-            ids.forEach(function(id) {
-                document.querySelectorAll('.hoo-room[data-room="'+id+'"]').forEach(function(r) {
-                    r.classList.remove('hoo-dimmed');
-                    var rect = r.querySelector('rect');
-                    if (rect) rect.style.strokeWidth = '3px';
-                });
+            hotspot.addEventListener('mouseleave', function() {
+                infoPanel.style.display = 'none';
             });
-        }
-
-        function highlightBeliefs(ids) {
-            ids.forEach(function(id) {
-                document.querySelectorAll('.hoo-belief-section[data-belief-obj="'+id+'"]').forEach(function(b) {
-                    b.classList.remove('hoo-dimmed');
-                    b.style.background = '#fffde7';
-                });
-            });
-        }
-
-        function highlightStages(ids) {
-            ids.forEach(function(id) {
-                document.querySelectorAll('.hoo-flow-stage[data-stage="'+id+'"]').forEach(function(s) {
-                    s.classList.remove('hoo-dimmed');
-                    s.style.boxShadow = '0 0 8px rgba(91,106,191,0.4)';
-                });
-            });
-        }
-
-        // Object hover
-        allObjects.forEach(function(obj) {
-            var id = obj.dataset.obj;
-            obj.addEventListener('mouseenter', function(e) {
-                var m = objectMap[id];
-                if (m) { dimAll(); highlightObjects([id]); highlightRooms(m.rooms); highlightBeliefs(m.beliefs); highlightStages(m.stages); }
-                showTip(e, obj.dataset.tip);
-            });
-            obj.addEventListener('mousemove', moveTip);
-            obj.addEventListener('mouseleave', function() { clearAll(); hideTip(); });
-        });
-
-        // Room hover
-        allRooms.forEach(function(room) {
-            var id = room.dataset.room;
-            room.addEventListener('mouseenter', function(e) {
-                var m = roomMap[id];
-                if (m) { dimAll(); highlightRooms([id]); highlightObjects(m.objects); highlightBeliefs(m.beliefs); highlightStages(m.stages); }
-                showTip(e, room.dataset.tip);
-            });
-            room.addEventListener('mousemove', moveTip);
-            room.addEventListener('mouseleave', function() { clearAll(); hideTip(); });
-        });
-
-        // Belief section hover
-        allBeliefSections.forEach(function(bel) {
-            var id = bel.dataset.beliefObj;
-            bel.addEventListener('mouseenter', function(e) {
-                var m = objectMap[id];
-                if (m) { dimAll(); highlightBeliefs([id]); highlightObjects([id]); highlightRooms(m.rooms); highlightStages(m.stages); }
-            });
-            bel.addEventListener('mouseleave', function() { clearAll(); });
-        });
-
-        // Stage hover
-        allStages.forEach(function(stage) {
-            var id = stage.dataset.stage;
-            stage.addEventListener('mouseenter', function(e) {
-                var m = stageMap[id];
-                if (m) { dimAll(); highlightStages([id]); highlightObjects(m.objects); highlightRooms(m.rooms); highlightBeliefs(m.beliefs); }
-                showTip(e, stage.dataset.tip);
-            });
-            stage.addEventListener('mousemove', moveTip);
-            stage.addEventListener('mouseleave', function() { clearAll(); hideTip(); });
         });
     })();
 
