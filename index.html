@@ -343,34 +343,34 @@
           <svg id="hoo-scene-svg" viewBox="0 0 960 620"
                style="position:absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;">
 
-            <!-- Object 1 hotspot (blue, dining area) -->
+            <!-- Object 1 hotspot (blue label "1", dining room on right) -->
             <g class="hoo-hotspot" data-obj="1" style="pointer-events:all; cursor:pointer;">
-              <circle cx="515" cy="70" r="22" fill="rgba(0,128,255,0.2)" stroke="#00aaff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="700" cy="68" r="20" fill="rgba(0,128,255,0.2)" stroke="#00aaff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 2 hotspot (pink, right side bedroom) -->
+            <!-- Object 2 hotspot (pink label "2", far right side) -->
             <g class="hoo-hotspot" data-obj="2" style="pointer-events:all; cursor:pointer;">
-              <circle cx="885" cy="290" r="22" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="905" cy="285" r="20" fill="rgba(255,0,255,0.2)" stroke="#ff00ff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 3 hotspot (yellow on couch, blocking) -->
+            <!-- Object 3 hotspot (yellow label "3" with red box, on couch) -->
             <g class="hoo-hotspot" data-obj="3" style="pointer-events:all; cursor:pointer;">
-              <circle cx="570" cy="290" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="595" cy="290" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 4 hotspot (cyan, kitchen table) -->
+            <!-- Object 4 hotspot (cyan label "4", kitchen area) -->
             <g class="hoo-hotspot" data-obj="4" style="pointer-events:all; cursor:pointer;">
-              <circle cx="480" cy="95" r="22" fill="rgba(0,255,255,0.2)" stroke="#00ffff" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="488" cy="72" r="20" fill="rgba(0,255,255,0.2)" stroke="#00ffff" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 5 hotspot (yellow, bedroom left) -->
+            <!-- Object 5 hotspot (yellow label "5", bedroom left lower) -->
             <g class="hoo-hotspot" data-obj="5" style="pointer-events:all; cursor:pointer;">
-              <circle cx="82" cy="175" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="88" cy="178" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
-            <!-- Object 6 hotspot (yellow, bedroom near door) -->
+            <!-- Object 6 hotspot (yellow label "6", bedroom upper near door) -->
             <g class="hoo-hotspot" data-obj="6" style="pointer-events:all; cursor:pointer;">
-              <circle cx="52" cy="65" r="22" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
+              <circle cx="82" cy="100" r="20" fill="rgba(255,255,0,0.25)" stroke="#ffff00" stroke-width="3" class="hoo-pulse"/>
             </g>
 
             <!-- Path highlights (initially hidden) -->
@@ -575,9 +575,6 @@
                     <p>The high-level planner can optimally decide whether it's more efficient to continue searching for a missing object or to rearrange an object it has already found, based on its current belief state.</p>
                 </div>
             </div>
-            
-            <img src="./resources/hoo_pomdp_example.png" alt="HOO-POMDP Example Scenario" class="visible-image" style="width: 80%; background-color: white;">
-            <p class="table-caption" style="text-align: center; margin-top: -10px;">Example of complex spatial reasoning: Object 2 blocks the path for Object 3, and Object 3 blocks the goal for Object 1. The planner must find the sequence: Move 2, then 3, then 1.</p>
             <hr>
         </div>
 
